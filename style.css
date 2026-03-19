@@ -510,3 +510,19 @@ footer {
   .hero-cta .btn { width: 100%; text-align: center; }
   .hero-display { font-size: clamp(4.5rem, 22vw, 5.5rem); }
 }
+
+/* ══════════════ MOBILE FIXES ══════════════ */
+/* Logos: column on mobile */
+.logos-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 600px) {
+  .logos-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+}

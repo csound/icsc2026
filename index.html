@@ -126,7 +126,7 @@
 
         </div>
 
-        <div style="display:flex; align-items:center; gap:2rem;">
+        <div class="logos-row">
           <img src="img/trapani.png" alt="Trapani" style="height:60px; width:auto;">
           <img src="img/Logo_Csound.png" alt="Csound" style="height:60px; width:auto;">
           <img src="img/Logo_Cons_Palermo.png" alt="Conservatorio di Palermo" style="height:60px; width:auto;">
@@ -171,4 +171,14 @@
   </footer>
 
 
-  <script data-cfasync="false" src="/cdn
+  
+  <script>
+    function toggleMenu() {
+      var m = document.getElementById("mobileMenu");
+      var b = document.getElementById("burger");
+      m.classList.toggle("open");
+      b.classList.toggle("open");
+    }
+  </script>
+</body>
+</html>
