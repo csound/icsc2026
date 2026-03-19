@@ -315,8 +315,8 @@ main { padding-top: var(--nav-h); }
 }
 .page-header p {
   font-family: var(--font-mono); font-weight: 300;
-  font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--navy); opacity: .5;
+  font-size: 0.7rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--navy); opacity: 1;
 }
 .page-header-rule {
   width: 50px; height: 1px;
@@ -334,7 +334,7 @@ main { padding-top: var(--nav-h); }
 .sec-kicker {
   font-family: var(--font-mono); font-weight: 300;
   font-size: .65rem; letter-spacing: .35em; text-transform: uppercase;
-  color: var(--navy); opacity: .5;
+  color: var(--navy); opacity: 1;
   margin-bottom: .5rem; display: block;
 }
 .sec-title {
@@ -376,7 +376,7 @@ main { padding-top: var(--nav-h); }
   font-size: .95rem; letter-spacing: .06em; text-transform: uppercase;
   color: var(--navy); margin-bottom: .5rem;
 }
-.card p { font-size: .88rem; font-weight: 300; color: var(--navy); opacity: .6; line-height: 1.6; }
+.card p { font-size: .88rem; font-weight: 300; color: var(--navy); opacity: 1; line-height: 1.6; }
 
 /* ══════════════ TIMELINE ══════════════ */
 .timeline { border-left: 1px solid rgba(18,24,74,.2); margin-left: .5rem; }
@@ -396,14 +396,14 @@ main { padding-top: var(--nav-h); }
 .tl-date {
   font-family: var(--font-mono); font-weight: 300;
   font-size: .78rem; letter-spacing: .06em;
-  color: var(--navy); opacity: .45; padding-top: .1rem;
+  color: var(--navy); opacity: 1; padding-top: .1rem;
 }
 .tl-content h4 {
   font-family: var(--font-mono); font-weight: 300;
   font-size: .88rem; text-transform: uppercase; letter-spacing: .06em;
   color: var(--navy); margin-bottom: .15rem;
 }
-.tl-content p { font-size: .82rem; font-weight: 300; color: var(--navy); opacity: .5; }
+.tl-content p { font-size: .82rem; font-weight: 300; color: var(--navy); opacity: 1; }
 
 /* ══════════════ TOPICS ══════════════ */
 .topics { columns: 2; column-gap: 2rem; margin-bottom: 2rem; }
