@@ -526,3 +526,12 @@ footer {
     gap: 1.2rem;
   }
 }
+
+
+a[href="https://cmt3.research.microsoft.com/CSOUND2026"],
+a[href="https://cmt3.research.microsoft.com/CSOUND2026"]:visited,
+a[href="https://cmt3.research.microsoft.com/CSOUND2026"]:hover,
+a[href="https://cmt3.research.microsoft.com/CSOUND2026"]:active {
+  color: #0000EE;
+  text-decoration: underline;
+}
