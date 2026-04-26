@@ -535,3 +535,17 @@ a[href="https://cmt3.research.microsoft.com/CSOUND2026"]:active {
   color: #0000EE;
   text-decoration: underline;
 }
+
+.intro a,
+.intro a:visited,
+.tl-content a,
+.tl-content a:visited {
+  color: #2f8fc7;
+  text-decoration: none;
+}
+
+.intro a:hover,
+.tl-content a:hover {
+  color: #2f8fc7;
+  text-decoration: underline;
+}
