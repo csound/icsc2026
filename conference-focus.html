@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conference Focus | ICSC 2026 · Trapani, Sicily</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="nav-wrapper">
+  <nav>
+    <a class="nav-brand" href="index.html">
+      <div class="nav-brand-logo">Cs</div>
+      ICSC <span>2026</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="submission.html">Submission</a></li>
+      <li><a href="conference-focus.html" class="active">Conference Focus</a></li>
+      <li><a href="program.html">Program</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="venue.html">Venue</a></li>
+    </ul>
+    <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="team.html">Team</a>
+    <a href="submission.html">Submission</a>
+    <a href="conference-focus.html" class="active">Conference Focus</a>
+    <a href="program.html">Program</a>
+    <a href="register.html">Register</a>
+    <a href="venue.html">Venue</a>
+  </div>
+</div>
+
+<main>
+  <div class="page-header">
+    <div class="page-header-inner">
+      <h1>Conference Focus</h1>
+      <div class="page-header-rule"></div>
+      <p>Gottfried Michael Koenig · James Tenney · ICSC 2026</p>
+    </div>
+  </div>
+
+  <div class="line-divider"></div>
+
+  <div class="content-bg">
+    <div class="section">
+
+      <span class="sec-kicker">ICSC 2026</span>
+      <h2 class="sec-title">Focus</h2>
+
+      <div class="timeline">
+
+  <!-- CONTEXT -->
+  <div class="tl-item">
+    <div class="tl-date">Context</div>
+    <div class="tl-content">
+      <p>This year marks the centenary of the birth of Gottfried Michael Koenig (1926-2021), as well as the fifth anniversary of his passing. Beyond being a central figure in electronic music, Koenig engaged with Csound in his later years: first while revising his <em>Essay</em> (1957), which was included for a period among the QuteCsound/CsoundQT examples, and later in the composition of his final works, <em>Polychromie</em> (2001) and <em>Polytonie</em> (2010).</p>
+
+      <p>Moreover, 2026 marks the twentieth anniversary of the death of James Tenney (1934-2006). Tenney was among the first major composers to employ digital audio programming languages such as MUSIC III, a foundational system in the lineage that would later lead to Csound. From <em>Analog #1</em> (1961) to <em>For Ann (rising)</em> (1969), his work represents one of the earliest stages of a trajectory that continues to inform contemporary practice.</p>
+
+      <p>In light of these anniversaries, the conference aims to highlight, as a conceptual fil rouge across dedicated paper sessions and concerts, selected aspects of their output. Despite their markedly different aesthetic orientations, their works reveal significant correspondences and points of reflection.</p>
+
+      <p>Their contributions engage with a wide range of topics, including electronic music composition and theory, as evidenced in writings such as Tenney’s <em>Computer Music Experiences 1961-64</em> and Koenig’s <em>The Construction of Sound</em>, as well as conventional and non-conventional sound synthesis, algorithmic composition, voltage-controlled synthesis, and music programming.</p>
+    </div>
+  </div>
+
+  <!-- SUBMISSIONS -->
+  <div class="tl-item">
+    <div class="tl-date">Submissions</div>
+    <div class="tl-content">
+      <p>
+        We encourage submissions, both musical and scientific, that engage with the themes, methods, and perspectives emerging from the work of Gottfried Michael Koenig and James Tenney.
+      </p>
+    </div>
+  </div>
+
+  <!-- REFERENCES -->
+  <div class="tl-item">
+    <div class="tl-date">References</div>
+    <div class="tl-content">
+      <p><a href="https://koenigproject.nl/" target="_blank" rel="noopener noreferrer">Koenig Project</a></p>
+      <p><a href="https://koenigproject.nl/download-pdfs/" target="_blank" rel="noopener noreferrer">Koenig Project · PDF Downloads</a></p>
+      <p><a href="http://www.jamestenney.net/" target="_blank" rel="noopener noreferrer">James Tenney</a></p>
+      <p><a href="https://www.plainsound.org/artist/james_tenney.html" target="_blank" rel="noopener noreferrer">Plain Sound · James Tenney</a></p>
+      <p><a href="https://frogpeak.org/fpartists/fptenney.html" target="_blank" rel="noopener noreferrer">Frog Peak · James Tenney</a></p>
+    </div>
+  </div>
+
+</div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      ICSC 2026
+      <p>8th International Csound Conference · Trapani, Sicily</p>
+      <p class="footer-contact">Contact: <a href="mailto:icsc2026@constp.it">icsc2026@constp.it</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    var m = document.getElementById("mobileMenu");
+    var b = document.getElementById("burger");
+    m.classList.toggle("open");
+    b.classList.toggle("open");
+  }
+</script>
+
+</body>
+</html>
