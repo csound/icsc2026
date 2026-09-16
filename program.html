@@ -23,7 +23,15 @@
         <li><a href="team.html">Team</a></li>
         <li><a href="submission.html">Submission</a></li>
         <li><a href="conference-focus.html">Conference Focus</a></li>
-        <li><a href="program.html" class="active">Program</a></li>
+        <li class="has-dropdown">
+          <a href="program.html" class="active">Program</a>
+          <ul class="nav-dropdown">
+            <li><a href="#overview">Keynote</a></li>
+            <li><a href="#general-program">General Program</a></li>
+            <li><a href="#workshops-installations">Workshop &amp; Installations</a></li>
+            <li><a href="#concerts-gibellina">Concerts &amp; Gibellina</a></li>
+          </ul>
+        </li>
         <li><a href="register.html">Register</a></li>
         <li><a href="venue.html">Venue</a></li>
       </ul>
@@ -36,7 +44,18 @@
       <a href="team.html">Team</a>
       <a href="submission.html">Submission</a>
       <a href="conference-focus.html">Conference Focus</a>
-      <a href="program.html" class="active">Program</a>
+      <div class="mobile-submenu-wrap">
+        <button class="mobile-submenu-toggle active" id="programSubToggle" onclick="toggleProgramSub()"
+          aria-expanded="false">
+          Program <span class="mobile-submenu-arrow">&#9662;</span>
+        </button>
+        <div class="mobile-submenu" id="programSubmenu">
+          <a href="#overview" onclick="toggleMenu()">Keynote</a>
+          <a href="#general-program" onclick="toggleMenu()">General Program</a>
+          <a href="#workshops-installations" onclick="toggleMenu()">Workshop &amp; Installations</a>
+          <a href="#concerts-gibellina" onclick="toggleMenu()">Concerts &amp; Gibellina</a>
+        </div>
+      </div>
       <a href="register.html">Register</a>
       <a href="venue.html">Venue</a>
     </div>
@@ -46,158 +65,1048 @@
     <div class="page-header">
       <div class="page-header-inner">
         <h1>Program</h1>
-
         <div class="page-header-rule"></div>
-        <p>Conference schedule · To be announced</p>
-
+        <p>Keynotes · Papers · Concerts · Workshops · Installations</p>
       </div>
     </div>
+
     <div class="line-divider"></div>
 
     <div class="content-bg">
+      <div class="section" id="overview">
 
-      <!-- <div class="section">
-        <span class="sec-kicker">Program</span>
-        <h2 class="sec-title">Program <strong>Coming Soon</strong></h2>
+        <span class="sec-kicker">20&ndash;22 October 2026 &middot; Chiostro di San Domenico, Trapani</span>
+        <h2 class="sec-title">Program <strong>Overview</strong></h2>
+
         <div class="intro">
-
-         
-          
-          <p>We are currently developing a program designed to encourage artistic, technical, and scholarly exchange within the international
-          Csound community. The conference will include keynote talks, paper presentations, artistic works, concerts, workshops,
-          and discussions, creating opportunities for dialogue across disciplines and practices. Further details will be announced in due course.</p>
-          
+          <p>Over three days, ICSC 2026 brings together keynote talks, paper presentations, concerts, workshops and
+            sound installations, with particular attention this year to the work and legacy of Gottfried Michael
+            Koenig and James Tenney.</p>
+          <p>The schedule below is provisional: exact timings and room assignments may be adjusted closer to the
+            event.</p>
         </div>
-      </div> -->
 
-      <div class="section">
-        <span class="sec-kicker">Program</span>
-        <h2 class="sec-title">Program <strong>Coming Soon</strong></h2>
+        <hr class="section-divider">
+
+        <span class="sec-kicker">Keynote Speakers</span>
+        <h2 class="sec-title">Keynotes</h2>
 
         <div class="intro">
-          <p>We are currently preparing the conference program to encourage artistic, technical, and scholarly exchange
-            within
-            the international Csound community. The conference will include keynote talks, paper presentations, artistic
-            works,
-            concerts, workshops, and discussions, creating opportunities for dialogue across disciplines and practices.
-            Further details will be announced in due course.
-          </p><br><br><br>
 
-          <h2 class="sec-title">Keynote Speakers</h2>
+          <h2 class="sec-title2">Jeanette Claassen</h2>
 
-          <!-- <h3>Alessandro Petrolati</h3> -->
+          <img src="img/keynote/jeanette_c.jpg" alt="Jeanette Claassen"
+            style="width: 300px; aspect-ratio: 1 / 1; object-fit: cover;">
+
+          <p>Jeanette Claassen is a student of computer science and electrical engineering at the university of
+            Paderborn, Germany. Her focus is on accessibility.</p>
+
+          <p>She has been an active member of the Csound community for several years, where she is known for her
+            practical user defined opcodes (UDOs) for mainstream and pop applications as well as HRTF based
+            binaural spatialisation and eclectic physical and semi-physical models and pure sound-alikes.</p>
+
+          <p>Her Csound based music utilises HRTF to create 3d scenes on the border between concrete reality and
+            abstract imagery. She also regularly employs live or sampled Csound instruments in more typical pop,
+            electro and other music.</p>
+
+          <p>Outside of Csound, Jeanette is a long standing member of the Linux Audio community, relying solely on
+            the Linux commandline to produce music spanning pop, electro, rock and baroque.</p>
+
+          <p>The uniting theme in all her sound and music work is the love of sound design, especially based on
+            pure synthesis. For this she uses all available tools, hard- and software, employing a wide variety of
+            techniques.</p>
+          <br><br>
+
           <h2 class="sec-title2">Alessandro Petrolati</h2>
 
           <img src="img/keynote/alessandro_Petrolati2025.png" alt="Alessandro Petrolati"
             style="width: 300px; aspect-ratio: 1 / 1; object-fit: cover;">
 
           <p>Graduated in Piano and Electronic Music from the Conservatory of Pesaro (studying with Valentini and
-            Giordani),
-            he also attended the Opera program at the Pescara Music Academy.</p>
+            Giordani), he also attended the Opera program at the Pescara Music Academy.</p>
 
           <p>He has performed in electronic and contemporary music contexts, including the State Auditorium in Rome,
             the Royal Palace of Milan, the Pesaro Film Festival, 91Mq in Berlin, Piazza del Popolo in Rome
-            (with Ennio Morricone and astronaut Roberto Vittori), the Genoa Science Festival, ICSC in Saint Petersburg,
-            Sguardi Sonori, and the Macerata Opera Festival.</p>
+            (with Ennio Morricone and astronaut Roberto Vittori), the Genoa Science Festival, ICSC in Saint
+            Petersburg, Sguardi Sonori, and the Macerata Opera Festival.</p>
 
-          <p>His composition “Turnaround” received an honorable mention at the Luigi Russolo International Competition.
-            He has taught for several years at the University of Macerata, the Academy of Fine Arts in Urbino, and at
-            the Conservatories of Pesaro (Rossini), Udine (Tomadini), and Cesena (Maderna-Lettimi).</p>
+          <p>His composition &ldquo;Turnaround&rdquo; received an honorable mention at the Luigi Russolo
+            International Competition. He has taught for several years at the University of Macerata, the Academy
+            of Fine Arts in Urbino, and at the Conservatories of Pesaro (Rossini), Udine (Tomadini), and Cesena
+            (Maderna-Lettimi).</p>
 
-          <p>In 2012, he founded the software company apeSoft, developing music applications for Apple devices that are
-            distributed internationally and used by hundreds of thousands of users. Since 2019, he has been involved in
-            the assisted orchestration project Orchidea, coordinated by Carmine Emanuele Cella and supported by IRCAM
-            (Paris),
-            HEM (Geneva), and CNMAT at the University of California, Berkeley. As part of this project, he published an
-            article
-            in the Computer Music Journal (MIT Press).</p>
+          <p>In 2012, he founded the software company apeSoft, developing music applications for Apple devices that
+            are distributed internationally and used by hundreds of thousands of users. Since 2019, he has been
+            involved in the assisted orchestration project Orchidea, coordinated by Carmine Emanuele Cella and
+            supported by IRCAM (Paris), HEM (Geneva), and CNMAT at the University of California, Berkeley. As part
+            of this project, he published an article in the Computer Music Journal (MIT Press).</p>
 
-          <p>He works as a software/firmware designer and programmer for Studiologic, a leading company in electronic
-            musical
-            instruments, and also provides technical consultancy for the prestigious piano manufacturer Schulze
-            Pollmann.</p>
+          <p>He works as a software/firmware designer and programmer for Studiologic, a leading company in
+            electronic musical instruments, and also provides technical consultancy for the prestigious piano
+            manufacturer Schulze Pollmann.</p>
 
           <p>In recent years, he has been active as a solo pianist and in chamber ensembles throughout Italy.</p>
           <br><br>
 
+          <h2 class="sec-title2">Micah Frank</h2>
 
-          <h2 class="sec-title2">
-            </h1class>Micah Frank</h2>
+          <img src="img/keynote/MicahFrank.jpg" alt="Micah Frank"
+            style="width: 300px; aspect-ratio: 1 / 1; object-fit: cover;">
 
-          <img src="img/keynote/MicahFrank.jpg" alt="Micah Frank" style="width: 300px; aspect-ratio: 1 / 1; object-fit: cover;">
+          <p>Micah Frank is an electronic artist, composer, and instrument maker working across sound sculpture,
+            live performance, and music technology. Drawing on algorithmic and generative methods, his pieces
+            emerge from field recordings, bespoke software, and real-time synthesis. He has performed
+            internationally for over two decades.</p>
 
-          <p>Micah Frank is an electronic artist, composer, and instrument maker working across sound sculpture, live
-            performance, and music
-            technology. Drawing on algorithmic and generative methods, his pieces emerge from field recordings, bespoke
-            software,
-            and real-time synthesis. He has performed internationally for over two decades.</p>
-
-          <p>Since founding Puremagnetik in 2006, Frank has directed the Brooklyn-based label’s development of
-            experimental musical instruments,
-            hardware devices, and sound design platforms, many built around the Csound audio programming language.</p>
+          <p>Since founding Puremagnetik in 2006, Frank has directed the Brooklyn-based label's development of
+            experimental musical instruments, hardware devices, and sound design platforms, many built around the
+            Csound audio programming language.</p>
 
           <p>His collaborative work includes the ensemble LARUM, which explores contemporary reinterpretations of
-            classical material through
-            live performance, as well as VONDISY, a project with Kodomo inspired by 1980s cinema soundtracks and early
-            industrial music aesthetics.</p>
+            classical material through live performance, as well as VONDISY, a project with Kodomo inspired by
+            1980s cinema soundtracks and early industrial music aesthetics.</p>
 
-          <p>Frank studied jazz performance at Mannes School of Music and The New School. Early work in sound design led
-            to freelance collaborations
-            with Ableton and Native Instruments, before he went on to lead sound content development at Ableton’s Berlin
-            office from 2013 to 2015.</p>
-            <br><br>
+          <p>Frank studied jazz performance at Mannes School of Music and The New School. Early work in sound
+            design led to freelance collaborations with Ableton and Native Instruments, before he went on to lead
+            sound content development at Ableton's Berlin office from 2013 to 2015.</p>
+          
 
-          <h2 class="sec-title2">
-            </h1class>Jeanette Claassen</h2>
-
-          <img src="img/keynote/jeanette_c.jpg" alt="Jeanette Claassen" style="width: 300px; aspect-ratio: 1 / 1; object-fit: cover;">
-
-          <p>Jeanette Claassen is a student of computer science and electrical engineering
-          at the university of Paderborn, Germany. Her focus is on accessibility.</p>
-
-          <p>She has been an active member of the Csound community for several years, where
-          she is known for her practical user defined opcodes (UDOs) for mainstream and
-          pop applications as well as HRTF based binaural spatialisation and eclectic physical
-          and semi-physical models and pure sound-alikes.</p>
-
-          <p>Her Csound based music utilises HRTF to create 3d scenes on the border between
-          concrete reality and abstract imagery. She also regularly employs live or
-          sampled Csound instruments in more typical pop, electro and other music.</p>
-
-          <p>Outside of Csound, Jeanette is a long standing member of the Linux Audio
-          community, relying soely on the Linux commandline to produce music spanning
-          pop, electro, rock and baroque.</p>
-
-          <p>The uniting theme in all her sound and music work is the love of sound design,
-          especially based on pure synthesis. For this she uses all available tools,
-          hard- and software, employing a wide variety of techniques.</p>
-
-            <br><br>
 
         </div>
 
+        <hr class="section-divider">
+
+        <span class="sec-kicker">Zone 1 of 3 &middot; Papers, Keynotes &amp; Plenary</span>
+        <h2 class="sec-title" id="general-program">General <strong>Program</strong></h2>
+
+        <div class="intro">
+          <p>Paper presentations, keynotes and plenary moments, day by day. Workshops and installations run in
+            parallel &mdash; see the dedicated zone below.</p>
+        </div>
+
+        <span class="sec-kicker">Day 1 · Tuesday</span>
+        <h2 class="sec-title">20 October</h2>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date">12:30&ndash;13:30</div>
+            <div class="tl-content">
+              <h4>Registration</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">13:30&ndash;14:00</div>
+            <div class="tl-content">
+              <h4>Opening &amp; Welcome — book news &amp; in memoriam</h4>
+            </div>
+          </div>
+          <div class="tl-cathead">Introduction of new Csound features and opcodes</div>
+          <div class="tl-item">
+            <div class="tl-date">14:00&ndash;14:15</div>
+            <div class="tl-content">
+              <h4>A Toolkit for Empirical Impulse Response Preparation</h4>
+              <p class="tl-authors">Victor Lazzarini</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">14:15&ndash;14:30</div>
+            <div class="tl-content">
+              <h4>ARA and Cabbage, a patch made in heaven?</h4>
+              <p class="tl-authors">Rory Walsh</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">14:30&ndash;14:45</div>
+            <div class="tl-content">
+              <h4>Embedding Live Machine Learning in Csound: Emotion-Driven Harmony via an ONNX-Runtime Opcode</h4>
+              <p class="tl-authors">Jinlan Zhao, Li (Charlie) Shi, Richard Boulanger</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">14:45&ndash;15:00</div>
+            <div class="tl-content">
+              <h4>Orchestrating an Interpreter: Csound7 as a Host for Symbolic Programs</h4>
+              <p class="tl-authors">Hlöðver Sigurðsson</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">15:00&ndash;15:30</div>
+            <div class="tl-content">
+              <h4>Break</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">15:30&ndash;16:30</div>
+            <div class="tl-content">
+              <h4>Keynote 1 - JEANETTE CLAASSEN</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">16:30&ndash;17:00</div>
+            <div class="tl-content">
+              <h4>Break</h4>
+            </div>
+          </div>
+          <div class="tl-cathead">Development of fresh interfaces, front ends, and development environments for Csound</div>
+          <div class="tl-item">
+            <div class="tl-date">17:00&ndash;17:15</div>
+            <div class="tl-content">
+              <h4>Cabbage 3: Not Your Garden Variety Vegetable</h4>
+              <p class="tl-authors">Rory Walsh</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">17:15&ndash;17:30</div>
+            <div class="tl-content">
+              <h4>NERD: A Node Editor for Csound Integration in Scientific and Artistic Contexts</h4>
+              <p class="tl-authors">Lovre Bogdanic</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">17:30&ndash;17:45</div>
+            <div class="tl-content">
+              <h4>CStore: A Browser-Based Studio for AI-Generated and LLM-Revised Csound Instrument Design</h4>
+              <p class="tl-authors">Richard Boulanger</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">17:45&ndash;18:00</div>
+            <div class="tl-content">
+              <h4>CsoundUnity 4.0: Toward a Csound-Based Interactive Audio Platform for Unity</h4>
+              <p class="tl-authors">Giovanni Bedetti</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">18:00&ndash;18:15</div>
+            <div class="tl-content">
+              <h4>Csound in the MetaVerse - Make It Yours: Personalizing Instruments, Worlds, and Live Sound in CsoundMeta</h4>
+              <p class="tl-authors">Hung Vo, Richard Boulanger</p>
+            </div>
+          </div>
+          <div class="tl-cathead">Utilizing Csound on embedded systems</div>
+          <div class="tl-item">
+            <div class="tl-date">18:15&ndash;18:30</div>
+            <div class="tl-content">
+              <h4>Csound on Embedded Risc V and Xtensa Architectures</h4>
+              <p class="tl-authors">Aman Jagwani, Victor Lazzarini</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">18:30&ndash;19:00</div>
+            <div class="tl-content">
+              <h4>Break</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">19:00&ndash;20:30</div>
+            <div class="tl-content">
+              <h4>Concert 1 — see Concerts &amp; Gibellina</h4>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <span class="sec-kicker">Day 2 · Wednesday</span>
+        <h2 class="sec-title">21 October</h2>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date">09:00&ndash;09:30</div>
+            <div class="tl-content">
+              <h4>Registration</h4>
+            </div>
+          </div>
+          <div class="tl-cathead">Innovations in sound synthesis and processing techniques</div>
+          <div class="tl-item">
+            <div class="tl-date">09:30&ndash;09:45</div>
+            <div class="tl-content">
+              <h4>Evoking Harmony via Convolution</h4>
+              <p class="tl-authors">Michael Gogins</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">09:45&ndash;10:00</div>
+            <div class="tl-content">
+              <h4>An Analysis-Guided Workflow for Constructing Playable Csound Physical Models: A Tupipa Case Study</h4>
+              <p class="tl-authors">Yao Ma, Wanjun Yang</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">10:00&ndash;10:15</div>
+            <div class="tl-content">
+              <h4>Four Routes Through Hyperspace: Wavetable Navigation Strategies via Givens Rotations</h4>
+              <p class="tl-authors">Luca Bimbi,Anthony Di Furia,Giuseppe Silvi</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">10:15&ndash;10:30</div>
+            <div class="tl-content">
+              <h4>Neural Virtual Analog Modeling in Csound via Real-Time Recurrent Inference</h4>
+              <p class="tl-authors">Ken Kobayashi</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">10:30&ndash;10:45</div>
+            <div class="tl-content">
+              <h4>The Verified Core and the New Frontend: “Software-as-a-Medical-Device” (SaMD) Methodology Applied to Csound Frontend Development</h4>
+              <p class="tl-authors">David Akbari</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">10:45&ndash;11:00</div>
+            <div class="tl-content">
+              <h4>A Rapid Opcode Development Workflow for Real-Time Physical Modelling in Csound</h4>
+              <p class="tl-authors">Juliette Tudoce, Vasileios Chatziioannou, Alex Hofmann</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">11:00&ndash;11:30</div>
+            <div class="tl-content">
+              <h4>Break</h4>
+            </div>
+          </div>
+          <div class="tl-cathead">Performer skills in Live-electronics</div>
+          <div class="tl-item">
+            <div class="tl-date">11:30&ndash;11:45</div>
+            <div class="tl-content">
+              <h4>Spatial Agents: A Timbre-Driven Ambisonic Instrument for Live Electronics in Csound and Max</h4>
+              <p class="tl-authors">Alberto Maria Gatti</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">11:45&ndash;12:00</div>
+            <div class="tl-content">
+              <h4>One Environment, One Chain: Csound's arduinoRead as a Native Sensor Interface for Performance-Oriented IMU Control</h4>
+              <p class="tl-authors">Jinlan Zhao, Richard Boulanger</p>
+            </div>
+          </div>
+          <div class="tl-cathead">Algorithmic composition with Csound</div>
+          <div class="tl-item">
+            <div class="tl-date">12:00&ndash;12:15</div>
+            <div class="tl-content">
+              <h4>csonus: An open-source collection of opcodes for algorithmic composition and experimental sound design</h4>
+              <p class="tl-authors">Valerio Orlandini</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">12:15&ndash;12:30</div>
+            <div class="tl-content">
+              <h4>Shaping Musical Texture through Markov-Matrix Operations in Csound</h4>
+              <p class="tl-authors">Micael Silva</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">12:30&ndash;14:00</div>
+            <div class="tl-content">
+              <h4>Lunch Break</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">14:00&ndash;15:00</div>
+            <div class="tl-content">
+              <h4>Keynote 2 - ALESSANDRO PETROLATI</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">15:00&ndash;15:30</div>
+            <div class="tl-content">
+              <h4>Break</h4>
+            </div>
+          </div>
+          <div class="tl-cathead">Algorithmic composition with Csound</div>
+          <div class="tl-item">
+            <div class="tl-date">15:30&ndash;15:45</div>
+            <div class="tl-content">
+              <h4>One Timeline, Many Renderings: A Wolfram Language Paclet for heterogeneous musical output</h4>
+              <p class="tl-authors">Francesco Vitucci, Michele Lorusso, Francesco Scagliola</p>
+            </div>
+          </div>
+          <div class="tl-cathead">Unleashing creativity and fostering interdisciplinary collaborations through Csound projects</div>
+          <div class="tl-item">
+            <div class="tl-date">15:45&ndash;16:00</div>
+            <div class="tl-content">
+              <h4>From Brainwaves to Csound: An Exploratory Audiovisual System with EEG and LLM-Based Agent Control in Unity</h4>
+              <p class="tl-authors">Chuhan Gao, Richard Boulanger, Mateo Larrea Ferro</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">16:00&ndash;16:15</div>
+            <div class="tl-content">
+              <h4>Immersive Engagement: Building the "Wildtrace" Sonic World with AI Assistance</h4>
+              <p class="tl-authors">Haokun Yang, Wanjun Yang</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">16:15&ndash;16:30</div>
+            <div class="tl-content">
+              <h4>A Vision-to-Music System for Accessible Interactive Sound Experiences Using Computer Vision and Csound</h4>
+              <p class="tl-authors">Will Chen, Richard Boulanger</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">16:30&ndash;17:00</div>
+            <div class="tl-content">
+              <h4>Break</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">17:00&ndash;18:00</div>
+            <div class="tl-content">
+              <h4>Keynote 3 - MICAH FRANK</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">18:00&ndash;18:30</div>
+            <div class="tl-content">
+              <h4>Break</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">18:30&ndash;19:30</div>
+            <div class="tl-content">
+              <h4>Concert 2 — see Concerts &amp; Gibellina</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">19:30&ndash;20:00</div>
+            <div class="tl-content">
+              <h4>Break</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">20:00&ndash;22:00</div>
+            <div class="tl-content">
+              <h4>Gala Dinner</h4>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <span class="sec-kicker">Day 3 · Thursday</span>
+        <h2 class="sec-title">22 October</h2>
+
+        <div class="timeline">
+          <div class="tl-cathead">Real-time implementation of Csound</div>
+          <div class="tl-item">
+            <div class="tl-date">09:30&ndash;09:45</div>
+            <div class="tl-content">
+              <h4>Real-Time Song Generation: A Csound API Case Study</h4>
+              <p class="tl-authors">Garrett Eckl, Steven Yi,Edward Costello, Leonardus Van Der Ploeg</p>
+            </div>
+          </div>
+          <div class="tl-cathead">Contributions engaging with the work and legacy of Gottfried Michael Koenig and James Tenney</div>
+          <div class="tl-item">
+            <div class="tl-date">09:45&ndash;10:00</div>
+            <div class="tl-content">
+              <h4>The Process of Constructing Postcard from Sertões within a Csound Environment</h4>
+              <p class="tl-authors">Catarina Rossi, Bruno Gazoni</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">10:00&ndash;10:15</div>
+            <div class="tl-content">
+              <h4>Somatic Continuum Paper</h4>
+              <p class="tl-authors">Tyler Kaufman</p>
+            </div>
+          </div>
+          <div class="tl-cathead">Integration of Csound into web-based applications</div>
+          <div class="tl-item">
+            <div class="tl-date">10:15&ndash;10:30</div>
+            <div class="tl-content">
+              <h4>pch2csd: From Command-Line Converter to Web-Based Modular Synthesis Environment</h4>
+              <p class="tl-authors">Gleb Rogozinski</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">10:30&ndash;10:45</div>
+            <div class="tl-content">
+              <h4>OnLive 音: A Browser-Based Real-Time Audio Effects System Using Csound</h4>
+              <p class="tl-authors">Lihong Tao, Richard Boulanger</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">10:45&ndash;11:00</div>
+            <div class="tl-content">
+              <h4>Csound Brain Lab: A Web Environment for Performing and Researching Brain-Computer Music Interfaces</h4>
+              <p class="tl-authors">Richard Boulanger,Pedro Sodre, Shiying Chen</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">11:00&ndash;11:30</div>
+            <div class="tl-content">
+              <h4>Break</h4>
+            </div>
+          </div>
+          <div class="tl-cathead">Live coding utilizing Csound</div>
+          <div class="tl-item">
+            <div class="tl-date">11:30&ndash;11:45</div>
+            <div class="tl-content">
+              <h4>Idyl: A Reactive Functional Language for Time, with Csound as a First-Class Backend</h4>
+              <p class="tl-authors">Johann Philippe</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">11:45&ndash;12:00</div>
+            <div class="tl-content">
+              <h4>Cordelia has wisdom: reshaping a live coding method</h4>
+              <p class="tl-authors">Jacopo Greco d'Alceo</p>
+            </div>
+          </div>
+          <div class="tl-cathead">Real-time implementation of Csound</div>
+          <div class="tl-item">
+            <div class="tl-date">12:00&ndash;12:15</div>
+            <div class="tl-content">
+              <h4>A Csound-Based Programmable Sound Engine for Machine-Listening-Driven Real-Time Electronic Music</h4>
+              <p class="tl-authors">Shi Liwei, Bai CHEN</p>
+            </div>
+          </div>
+          <div class="tl-cathead">Exploring Csound's educational potential</div>
+          <div class="tl-item">
+            <div class="tl-date">12:15&ndash;12:30</div>
+            <div class="tl-content">
+              <h4>Introducing Dr.C: 40+ Years of Csound and Computer Music, Now an Agentic AI Collaborator for Learning and Building Instruments, Effects, Plugins, and Web Apps</h4>
+              <p class="tl-authors">Mateo Larrea, Richard Boulanger</p>
+            </div>
+          </div>
+          <!-- <div class="tl-item">
+            <div class="tl-date">12:30&ndash;12:45</div>
+            <div class="tl-content">
+              <h4>Free slot / reserve</h4>
+            </div>
+          </div> -->
+          <div class="tl-item">
+            <div class="tl-date">12:30&ndash;13:30</div>
+            <div class="tl-content">
+              <h4>Lunch Break</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">13:30&ndash;14:30</div>
+            <div class="tl-content">
+              <h4>Round Table</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">14:30&ndash;15:00</div>
+            <div class="tl-content">
+              <h4>Closing Remarks &amp; News</h4>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">15:00&ndash;16:30</div>
+            <div class="tl-content">
+              <h4>Concert 3 — see Concerts &amp; Gibellina</h4>
+            </div>
+          </div>
+        </div>
+
+
+        <hr class="section-divider">
+
+        <span class="sec-kicker">Zone 2 of 3 &middot; Hands-on Sessions &amp; Sound Art</span>
+        <h2 class="sec-title" id="workshops-installations">Workshop <strong>&amp; Installations</strong></h2>
+
+        <div class="intro">
+          <p>The five conference workshops and the sound installation, running in parallel with the paper
+            sessions above.</p>
+        </div>
+
+        <span class="sec-kicker">Day 1 · Tuesday</span>
+        <h2 class="sec-title">20 October</h2>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date"><h4>Workshop 1</h4><br> 16:30 – 18:30</div>
+            <div class="tl-content">
+              
+              <h4>Joachim Heintz - Composing Self-Generative Structures in Csound</h4>
+
+              <p>The workshop explores self-generative musical structures based on recursive instrument calls in Csound 7. Participants investigate different control strategies and non-hierarchical processes, combining coding with artistic decision-making.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Installation</h4><br> Open from Day 1, 17:00 until Day 3, 13:00 </div>
+            <div class="tl-content">
+              <h4>Tyler Kaufman - Somatic Continuum</h4>
+              <p>An interactive audiovisual installation in which the visitor’s face, hands, heartbeat, and presence become the instrument itself. Body gestures and biometric data control a generative Csound environment of more than twenty instruments, creating a different audiovisual experience for each participant.<br>
+              
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <span class="sec-kicker">Day 2 · Wednesday</span>
+        <h2 class="sec-title">21 October</h2>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date"><h4>Workshop 2</h4><br> 10:00 - 11:00</div>
+            <div class="tl-content">
+              <h4>Greg Schiemer, Thorin Kerr - Phonehenge (2026) for Satellite Gamelan</h4>
+              <p>Participants use their smartphones as musical instruments through a Csound web app. The phones form a collective mobile speaker array, exploring a 25-note microtonal scale without external amplification.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Workshop 3</h4><br> 11:30 - 13:00</div>
+            <div class="tl-content">
+              <h4>Jacopo Greco d'Alceo - Cordelia, live coding in Csound</h4>
+              <p>A hands-on introduction to Cordelia, a language for live coding, composition, and notation with Csound. Participants explore its architecture and create their own instruments, effects, and functions using its plugin system.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Workshop 4</h4><br> 15:30 - 17:00</div>
+            <div class="tl-content">
+              <h4>Richard Boulanger - Introducing Csound in the MetaVerse 2.0: A Workshop/Jam Session</h4>
+        
+              <p>Participants use Meta Quest 3 headsets to interact with sound objects in a shared virtual environment powered by Csound and CsoundUnity. Sounds are manipulated through gestures within a collaborative networked jam session.</p>
+              <br>
+              <h4>Richard Boulanger, Hung Vo - CsoundMeta Dreams of Sicily</h4>
+              
+              <p>A networked XR performance dedicated to John ffitch, combining CsoundUnity, Meta Quest 3 headsets, live percussion, spatial audio, and remote performers. The shared virtual environment draws on Sicilian landscapes, architecture, and mythology through AI-generated visual worlds.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Installation</h4><br> all day</div>
+            <div class="tl-content">
+              <h4>Tyler Kaufman - Somatic Continuum</h4>
+              <p>An interactive audiovisual installation in which the visitor’s face, hands, heartbeat, and presence become the instrument itself. Body gestures and biometric data control a generative Csound environment of more than twenty instruments, creating a different audiovisual experience for each participant.</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <span class="sec-kicker">Day 3 · Thursday</span>
+        <h2 class="sec-title">22 October</h2>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date"><h4>Workshop 5</h4><br> 10:30 - 12:30</div>
+            <div class="tl-content">
+              <h4>Tarmo Johannes - Collective music making: James Tenney – Harmonium #7</h4>
+              <p>A collaborative workshop centered on performing James Tenney’s Harmonium #7 using Csound instruments. Participants explore just intonation and remote control via UDP/OSC, culminating in a collective performance of the piece.</p>
+              <br>
+              <h4>Tarmo Johannes - James Tenney - Saxony</h4>
+              
+              <p>A new live realization of Tenney’s 1978 process-based work using Csound and a Sylphyo wind controller. The original tape-feedback structure is recreated digitally through wave terrain synthesis, real-time control, and an evolving accumulation of overtones.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Installation</h4><br> until 13:00</div>
+            <div class="tl-content">
+              <h4>Tyler Kaufman - Somatic Continuum</h4>
+              <p>An interactive audiovisual installation in which the visitor’s face, hands, heartbeat, and presence become the instrument itself. Body gestures and biometric data control a generative Csound environment of more than twenty instruments, creating a different audiovisual experience for each participant.</p>
+              
+            </div>
+          </div>
+        </div>
+
+
+        <hr class="section-divider">
+
+        <span class="sec-kicker">Zone 3 of 3 &middot; Evening Concerts &amp; Satellite Venue</span>
+        <h2 class="sec-title" id="concerts-gibellina">Concerts <strong>&amp; Gibellina</strong></h2>
+
+        <div class="intro">
+          <p>The three evening concerts in Trapani, followed by the Gibellina satellite programme.</p>
+        </div>
+
+        <span class="sec-kicker">Day 1 · Tuesday &middot; Concert 1</span>
+        <h2 class="sec-title">20 October</h2>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date">
+              <h4>Bella Tenor</h4>
+              
+            </div>
+            <div class="tl-content">
+              <p class="tl-authors">Alex Hofmann</p>
+              <p>Mixed &middot; 10'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Convergent Series</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Joel Hunt</p>
+              <p>Fixed &middot; 5'45"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Midnight at the club</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Jean-Basile Sosa</p>
+              <p>Live Electronics &middot; 12'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Simple_test</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Enrico Francioni</p>
+              <p>Fixed &middot; 10'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Luce Martino</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Iain McCurdy</p>
+              <p>Multimedia &middot; 7'15"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Nel supplizio il canto. Cecilia</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Gianni Della Vittoria</p>
+              <p>Mixed &middot; 7'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Paranoise</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Luís Antunes Pena</p>
+              <p>Live Electronics &middot; 7'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Fleeting experience</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Clemens von Reusner</p>
+              <p>Fixed &middot; 8'00"</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <span class="sec-kicker">Day 2 · Wednesday &middot; Concert 2</span>
+        <h2 class="sec-title">21 October</h2>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date"><h4>Respiri, silenzio: soglie</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Nicoletta Andreuccetti</p>
+              <p class="tl-authors">Lorenzo Ballerini, Live Electronics</p>
+              <p class="tl-authors">Anthony di Furia, Sound Design</p>
+              <p>Mixed &middot; 10'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Xoaninha</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">XXXX XXXX</p>
+              <p>Fixed &middot; 6'56"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Void</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Lorenzo Ballerini</p>
+              <p class="tl-authors">Giuseppe Ernandez, Csound Designer</p>
+              <p>Live Electronics &middot; 10'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Via Z Drive</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Serkan Sevilgen</p>
+              <p>Fixed &middot; 6'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Persona Torrent</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Marijana Janevska</p>
+              <p>Mixed &middot; 5'45"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Sehr quasi langsam</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">hui kim</p>
+              <p>Fixed &middot; 8'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Don't Say Cats</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Francesco Perissi</p>
+              <p class="tl-authors">Alberto Maria Gatti</p>
+              <p>Live Electronics &middot; 10'50"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Morphesis</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Parham Izadyar</p>
+              <p>Fixed &middot; 6'51"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Postcard from Sertões</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Catarina Rossi</p>
+              <p class="tl-authors"> Bruno Gazoni </p>
+              <p>Mixed &middot; 8'00"</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <span class="sec-kicker">Day 3 · Thursday &middot; Concert 3</span>
+        <h2 class="sec-title">22 October</h2>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date"><h4>Spazio Inclinato</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Matteo Tundo</p>
+              <p>Mixed &middot; 7'50"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Lumina</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Francesco Vitucci</p>
+              <p>Fixed &middot; 5'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Csound EEG Duet #2</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Shiying (Amy) Chen</p>
+              <p class="tl-authors">Richard Boulanger</p>
+              <p>Live Electronics &middot; 8'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>VoceST III</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Massimo Fragala'</p>
+              <p>Fixed &middot; 6'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Symbol X: Six Unbalanced Equations for Violin and Live Electronics</h4>
+             </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Jinlan Zhao</p>
+              <p class="tl-authors">Richard Boulanger</p>
+              <p>Mixed &middot; 8'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Butterfly Effect</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Cesare Saldicco</p>
+              <p>Fixed &middot; 10'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Echoes of the Unseens</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Jacopo Greco d'Alceo</p>
+              <p>Live Electronics &middot; 10'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Transmutational Interplay for Piano and Csound</h4>
+              </div>
+            <div class="tl-content">
+            
+              <p class="tl-authors">Yuwen Meng</p>
+              <p class="tl-authors">Richard Boulanger</p>
+              <p>Mixed &middot; 8'00"</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <span class="sec-kicker">Satellite venue &middot; MAC – Museo d'Arte Contemporanea "Ludovico Corrao",  Viale Segesta 1, Gibellina (TP)</span>
+        <h2 class="sec-title">Gibellina</h2>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date"><h4>Electropoem No.12</h4></div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Ali Balighi</p>
+              <p>Fixed Media &middot; n/a</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>P l e n u m (Groot Auditorium Leiden)</h4></div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Michele Del Prete</p>
+              <p>Fixed Media &middot; 10'13"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>In memoria di Giuseppe Ganduscio</h4></div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Giovanni Damiani</p>
+              <p>Fixed Media &middot; n/a</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Alghero Fever</h4></div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Grant Chu Covell</p>
+              <p>Fixed Media &middot; 8'43"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Genesi Astratta</h4></div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Matteo Tundo</p>
+              <p>Fixed Media &middot; 9'08"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Flourishing Blossoms Like a Dream</h4></div>
+            <div class="tl-content">
+              <p>An Audiovisual Electroacoustic Composition</p>
+              <p class="tl-authors">Hechen Weng</p>
+              <p class="tl-authors">Haokun Yang</p>
+              <p>Fixed Media &middot; 7'30"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Extrapolation de la campagne</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Jean Basile Sosa</p>
+              <p>Fixed Media &middot; 20'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Ton-Leben</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Joachim Heintz</p>
+              <p>Fixed Media &middot; 10'00"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Skeiðarársandur</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Jan Jacob Hofmann</p>
+              <p>Fixed Media &middot; n/a</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Undercurrents</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Antonio Scarcia</p>
+              <p>Fixed Media &middot; 6'32"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>When an Android Becomes Obsolete</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Giancarlo Alfonso</p>
+              <p>Fixed Media &middot; n/a</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Porphyry v7.4.2</h4>
+              </div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Michael Gogins</p>
+              <p>Fixed Media &middot; n/a</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date"><h4>Glide</h4></div>
+            <div class="tl-content">
+              
+              <p class="tl-authors">Chris Arrell</p>
+              <p>Fixed Media &middot; 10'10"</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="notice">
+           <strong>Note</strong> &mdash; this schedule is provisional. Room assignments and the Gibellina running
+          order will be confirmed closer to the conference. 
+        </div>  -->
+
       </div>
-
-
     </div>
   </main>
 
   <footer>
-    <!-- <div class="footer-line"></div> -->
     <div class="footer-inner">
       <div class="footer-brand">
         ICSC 2026
         <p>8th International Csound Conference · Trapani, Sicily</p>
-        <p class="footer-contact">Contact: <a href="mailto:">lorenzo.ballerini@constp.it</a></p>
+        <p class="footer-contact">Contact: <a href="mailto:icsc2026@constp.it">icsc2026@constp.it</a></p>
       </div>
-
     </div>
-    <!-- <div class="footer-copy">
-    <span>© 2026 ICSC — International Csound Conference</span>
-  </div> -->
   </footer>
-
-
 
   <script>
     function toggleMenu() {
@@ -205,6 +1114,13 @@
       var b = document.getElementById("burger");
       m.classList.toggle("open");
       b.classList.toggle("open");
+    }
+    function toggleProgramSub() {
+      var sub = document.getElementById("programSubmenu");
+      var btn = document.getElementById("programSubToggle");
+      sub.classList.toggle("open");
+      btn.classList.toggle("open");
+      btn.setAttribute("aria-expanded", sub.classList.contains("open") ? "true" : "false");
     }
   </script>
 </body>
