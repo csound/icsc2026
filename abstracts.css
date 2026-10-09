@@ -82,6 +82,29 @@
   margin-bottom: .35rem;
   overflow-wrap: break-word;
 }
+
+/* Paper titles are links to the PDF (opens in a new tab). They look like plain titles;
+   a small "PDF" tag after the title shows that they can be clicked. */
+.boa-title a,
+.boa-title a:visited { color: inherit; text-decoration: none; }
+.boa-title a:hover,
+.boa-title a:focus-visible {
+  color: #2f8fc7;
+  text-decoration: underline; text-underline-offset: .22em; text-decoration-thickness: 1px;
+}
+.boa-title a:focus-visible { outline-offset: 3px; }
+.boa-title a::after {
+  content: "PDF";
+  display: inline-block;
+  margin-left: .7em; padding: .12em .5em .06em;
+  vertical-align: .15em;
+  border: 1px solid currentColor; border-radius: 2px;
+  font-size: .56rem; letter-spacing: .18em; line-height: 1.4;
+  opacity: .55; white-space: nowrap; text-decoration: none;
+  transition: opacity var(--ease);
+}
+.boa-title a:hover::after,
+.boa-title a:focus-visible::after { opacity: .9; }
 .boa-sub {
   font-size: .86rem; font-weight: 300;
   color: var(--navy); opacity: .7;
@@ -111,6 +134,10 @@
 .boa-abstract p + ul,
 .boa-abstract ul + p { margin-top: .75rem; }
 .boa-abstract ul { margin: .75rem 0 0 1.3rem; list-style: disc outside; }
+.boa-abstract a,
+.boa-abstract a:visited { color: #2f8fc7; text-decoration: none; overflow-wrap: anywhere; }
+.boa-abstract a:hover { text-decoration: underline; }
+.boa-abstract p.boa-fn { margin-top: .6rem; font-size: .84rem; opacity: .85; }
 
 /* Empty fields (to be filled in by hand) take no space */
 .boa-authors:empty,
@@ -138,4 +165,5 @@
   .boa-session, .boa-day, .sec-kicker, .sec-title { break-after: avoid; page-break-after: avoid; }
   .boa-part { break-before: page; page-break-before: always; }
   .boa-abstract { max-width: none; }
+  .boa-title a::after { display: none; }
 }

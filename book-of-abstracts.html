@@ -14,11 +14,16 @@
 <body>
 
   <!--
-    BOOK OF ABSTRACTS — pagina generata dai PDF delle submission (cartella "Submissions 1-103").
-    L'ordine segue la pagina Program (senza orari). Titoli e autori sono presi dal Program.
-    Per trovare i campi da completare cerca nel file:  DA COMPILARE   (campi vuoti)
+    BOOK OF ABSTRACTS — pagina generata dai PDF "camera ready" (cartella "Submissions 1-103/camera ready").
+    L'ordine segue la pagina Program (senza orari). Titoli e autori (con i ruoli) sono presi dal Program;
+    dove nel Program c'è il segnaposto XXXX XXXX gli autori sono presi dal camera-ready.
+    Le voci barrate nel Program qui NON sono barrate.
+    Per trovare i punti da controllare cerca nel file:  DA COMPILARE  (campi vuoti)
     e  NOTA  (voci in cui il testo non è un vero "Abstract" o non c'è un PDF).
-    Il commento "PDF n" sopra ogni voce indica il numero del PDF di origine.
+    Il commento "camera-ready n" sopra ogni voce indica il numero del PDF di origine.
+    Il titolo di ogni paper è un link al suo PDF nella cartella "papers": l'id della voce e il nome del file hanno lo stesso numero
+    (id="paper-07" → papers/icsc2026-paper-07.pdf). Il PDF si apre in una nuova scheda del browser (nessun download forzato).
+    Per sostituire un PDF basta sovrascrivere il file in "papers" mantenendo lo stesso nome.
   -->
 
   <div class="nav-wrapper">
@@ -135,32 +140,33 @@
           <section class="boa-group">
             <h4 class="boa-session">New Csound features, opcodes, and generative techniques</h4>
             <article class="boa-item" id="paper-01">
-              <!-- PDF 62 -->
-              <h5 class="boa-title">Shaping Musical Texture through Markov-Matrix Operations in Csound</h5>
+              <!-- camera-ready 62 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-01.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Shaping Musical Texture through Markov-Matrix Operations in Csound</a></h5>
               <p class="boa-authors">Micael Silva</p>
               <div class="boa-abstract">
                 <p>This paper presents four Csound opcodes for treating a Markov transition matrix as an explicit compositional object: BuildBiasedMatrix generates a matrix from intuitive affinity scores rather than typed probabilities, MatRotate cyclically shifts which state a hierarchy privileges, MatInterp interpolates between two matrices, and MatEntropy relaxes a matrix toward the maximum-entropy uniform matrix. These operations formalize procedures developed by hand across earlier textural compositions, now reusable across symbolic and audio-based work alike, regardless of the specific chain or material involved. Each operation is demonstrated through a short musical example built on a shared nine-state chain, with transition-matrix heatmaps, state timelines, and a Shannon-entropy curve offered as artifacts that consolidate the compositional intent behind each transformation. The result is a small, composition-first toolkit for shaping musical texture, situated within a practice-based approach to computer-assisted musical composition.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-02">
-              <!-- PDF 54 -->
-              <h5 class="boa-title">ARA and Cabbage, a patch made in heaven?</h5>
+              <!-- camera-ready 54 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-02.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">ARA and Cabbage, a patch made in heaven?</a></h5>
               <p class="boa-authors">Rory Walsh</p>
               <div class="boa-abstract">
-                <p>The Audio Random Access (ARA) extension has significantly expanded the capabilities of modern music production by allowing plugins access to entire audio regions. While highly powerful, developing ARA-capable plugins typically requires navigating dense, low-level APIs, a substantial barrier for audio researchers and open-source creators. This paper introduces a novel new ARA implementation within Cabbage 3. It focuses on the design patterns utilised within the core processing backend to negotiate host-to-plugin asset delivery, thread-safe memory sharing, and time-stamped playback markers within plugin environments. Furthermore, it explores how Cabbage 3 abstracts these low-level ARA callbacks, exposing the raw audio data and region metadata through dedicated Csound opcodes. This gives developers full access to the session timeline and audio assets using standard Csound syntax, enabling custom analysis and processing workflows without requiring complex ARA SDK knowledge.</p>
+                <p>The Audio Random Access (ARA) extension has significantly expanded the capabilities of modern music production by allowing plugins access to entire audio regions. While highly powerful, developing ARA-capable plugins typically requires navigating dense, low-level APIs, a substantial barrier for audio researchers and open-source creators. This paper introduces a new ARA implementation within Cabbage 3<sup>1</sup>. It focuses on the design patterns utilised within the core processing backend to negotiate host-to-plugin asset delivery, thread-safe memory sharing, and time-stamped playback markers within plugin environments. Furthermore, it explores how Cabbage 3 abstracts these low-level ARA callbacks, exposing the raw audio data and region metadata through dedicated Csound opcodes. This gives developers full access to the session timeline and audio assets using standard Csound syntax, enabling custom analysis and processing workflows without requiring complex ARA SDK knowledge.</p>
+                <p class="boa-fn"><sup>1</sup> The source code is available at <a href="https://github.com/rorywalsh/cabbage3" target="_blank" rel="noopener noreferrer">https://github.com/rorywalsh/cabbage3</a>.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-03">
-              <!-- PDF 59 -->
-              <h5 class="boa-title">Embedding Live Machine Learning in Csound: Emotion-Driven Harmony via an ONNX-Runtime Opcode</h5>
+              <!-- camera-ready 59 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-03.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Embedding Live Machine Learning in Csound: Emotion-Driven Harmony via an ONNX-Runtime Opcode</a></h5>
               <p class="boa-authors">Jinlan Zhao, Li (Charlie) Shi, Richard Boulanger</p>
               <div class="boa-abstract">
-                <p>Harmonic generation in Csound typically requires explicit chord specification in the score or coordination with an external process. We present the Affective Harmony Machine (AHM), a system that embeds an ONNX-format machine-learning model as a native Csound opcode, demonstrated through affect-driven chord progression generation. The system is backed by an annotated dataset of 108 jazz and pop chord progressions labeled with six emotion classes and seven scale/mode categories. A Random Forest classifier trained on this dataset is exported to the ONNX interchange format. The authors created emoChord, a Csound opcode that accepts an emotion string, performs live ML inference at i-rate via the ONNX Runtime C API, and schedules harmonically appropriate chord events into a synthesis instrument. No Python interpreter or external process is required at runtime; the current release targets macOS (arm64 natively, x86_64 via Rosetta). The implementation demonstrates a general pattern for embedding ONNX-compatible classifiers in Csound as a native plugin with no Python runtime requirement.</p>
+                <p>Harmonic generation in Csound typically requires explicit chord specification in the score or coordination with an external process. We present the Affective Harmony Machine (AHM), a system that embeds an Open Neural Network Exchange (ONNX) format machine-learning model as a native Csound opcode, demonstrated through affect-driven chord progression generation. The system trains a Random Forest classifier on 108 annotated jazz and pop chord progressions (six emotion classes, seven scale/mode categories) and exports it to ONNX. We also present emoChord, a Csound opcode that accepts an emotion string, performs live ML inference at i-rate via the ONNX Runtime C API, and schedules emotion-conditioned chord events into a synthesis instrument. No Python interpreter or external process is required at runtime; the current release targets macOS (arm64 natively, x86_64 via Rosetta). The implementation demonstrates a general pattern for embedding ONNX-compatible classifiers as native Csound plugins.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-04">
-              <!-- PDF 34 -->
-              <h5 class="boa-title">CStore: A Browser-Based Studio for AI-Generated and LLM-Revised Csound Instrument Design</h5>
+              <!-- camera-ready 34 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-04.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">CStore: A Browser-Based Studio for AI-Generated and LLM-Revised Csound Instrument Design</a></h5>
               <p class="boa-authors">Li (Charlie) Shi, Richard Boulanger</p>
               <div class="boa-abstract">
                 <p>Most text-to-music and text-to-audio systems generate a finished waveform: something to listen to, but not something a composer can directly edit, version, or reproduce. CStore instead generates the underlying Csound project file, and unlike established Csound authoring environments such as CsoundQt and Cabbage, it is built around a generative agent trained on a large, curated corpus of Csound instruments. This paper presents the CStore Web Console, a browser-based studio built on top of that generator that lets a composer draft, audition, vary, and revise Csound instruments without leaving the keyboard. The console pairs a Next.js interface with a Flask sidecar that shells out to the Csound command-line renderer, and organizes work around a library of runs, single-key commands for drafting and playback, and two ways of producing variations: deterministic, score-derived “children” and LLM-driven variants tiered by how far they may drift from a “mother” run. A separate path lets a user hand a rendered instrument to one of six language-model providers with a plain-English instruction, such as “add a plate reverb and lower the pitch by an octave,” and get back a new, separately versioned .csd rather than an overwritten one. We describe the console’s architecture and workflow, and what building a studio around an editable .csd implies for how AI-assisted Csound instruments get made and revised.</p>
@@ -171,44 +177,43 @@
           <section class="boa-group">
             <h4 class="boa-session">Development of fresh interfaces, front ends, and development environments for Csound</h4>
             <article class="boa-item" id="paper-05">
-              <!-- nessun PDF -->
-              <h5 class="boa-title">Cabbage 3: Not Your Garden Variety Vegetable</h5>
+              <!-- camera-ready 10 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-05.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Cabbage 3: Not Your Garden Variety Vegetable</a></h5>
               <p class="boa-authors">Rory Walsh</p>
               <div class="boa-abstract">
-                <!-- DA COMPILARE: abstract mancante (nessun PDF per questo paper) -->
+                <p>In an ever-evolving AI landscape, rising subscription costs for proprietary models like Claude and GitHub Copilot threaten to price out small-scale indie developers. To bypass these financial barriers, this paper explores how the Cabbage 3 ecosystem leverages JavaScript to accelerate frontend development. By combining Csound’s high-performance audio processing with decoupled, web-driven frontend architectures, Cabbage 3 provides a highly structured framework for AI-assisted development. Its predictable JSON layout engine, custom-widget boilerplates, and minimalist two-way JavaScript API natively lend themselves to high-accuracy code generation by open-source LLMs without triggering token-heavy hallucinations. Ultimately, this paper argues that Cabbage 3 remains deeply relevant precisely because its structural design bridges the gap between low-friction, AI-assisted web design and human-driven, high-performance DSP.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-06">
-              <!-- PDF 22 -->
-              <h5 class="boa-title">NERD: A Node Editor for Csound Integration in Scientific and Artistic Contexts</h5>
+              <!-- camera-ready 22 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-06.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">NERD: A Node Editor for Csound Integration in Scientific and Artistic Contexts</a></h5>
               <p class="boa-authors">Lovre Bogdanic</p>
               <div class="boa-abstract">
-                <!-- NOTA: nel testo compaiono due segnaposto "(details omitted for blind review)": da sostituire -->
-                <p>NERD (Node Editor for Real-Time DSP) is an open-source, Python-based visual programming environment that organises real-time digital signal processing pipelines as networks of heterogeneous, data-linked nodes on an interactive canvas. Its central feature is a first-class integration with Csound: synthesis instruments authored as standard .csd files are incorporated into any pipeline by adding inline comment annotations that declare their input and output channels; NERD’s meta-parser automatically exposes these channels as typed node ports without requiring any modification to the Csound instrument logic. Surrounding infrastructure—biosignal acquisition, motion tracking, MIDI, OSC, and LabStreamingLayer network streaming—is handled by a library of plugin nodes backed by a daemon-thread worker model. NERD originated in a (details omitted for blind review) research project on musical improvisation and joint action. It has since been used in several scientific and artistic events, including the Science Festival Frankfurt 2024 and the neuroscience outreach event Frankfurt hat Hirn 2026, and a live heart rate sonification installation during an artist-in-residence programme in 2025. The software is released under the GNU General Public License (v3) and is available at (details omitted for blind review).</p>
+                <p>NERD (Node Editor for Real-Time DSP) is an open-source, Python-based visual programming environment that organises real-time digital signal processing pipelines as networks of heterogeneous, data-linked nodes on an interactive canvas. Its central feature is a first-class integration with Csound: synthesis instruments authored as standard .csd files are incorporated into any pipeline by adding inline comment annotations that declare their input and output channels; NERD’s meta-parser automatically exposes these channels as typed node ports without requiring any modification to the Csound instrument logic. Surrounding infrastructure—biosignal acquisition, motion tracking, MIDI, OSC, and LabStreamingLayer network streaming—is handled by a library of plugin nodes backed by a daemon-thread worker model. NERD originated in a Volkswagen-Foundation funded research project on musical improvisation and joint action. It has since been used in several scientific and artistic events, including the Science Festival Frankfurt 2024 and the neuroscience outreach event Frankfurt hat Hirn 2026, and a live heart rate sonification installation during an artist-in-residence program in 2025. The software is released under the GNU General Public License (v3) and is available at <a href="https://gitlab.gwdg.de/lovre.bogdanic/nerd" target="_blank" rel="noopener noreferrer">https://gitlab.gwdg.de/lovre.bogdanic/nerd</a>.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-07">
-              <!-- PDF 40 -->
-              <h5 class="boa-title">Introducing Dr.C: 40+ Years of Csound and Computer Music, Now an Agentic AI Collaborator for Learning and Building Instruments, Effects, Plugins, and Web Apps</h5>
+              <!-- camera-ready 40 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-07.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Introducing Dr.C: 40+ Years of Csound and Computer Music, Now an Agentic AI Collaborator for Learning and Building Instruments, Effects, Plugins, and Web Apps</a></h5>
               <p class="boa-authors">Mateo Larrea, Richard Boulanger</p>
               <div class="boa-abstract">
-                <p>Dr.C is a domain-specialized AI system for Csound. It exists as two independent products built around the same philosophy. Dr.C CLI is a Bun-based terminal application, a two-column TUI with chat and version history on one side and a live CSD, waveform, and signal-flow view on the other, built for production: scripting, batch rendering, and shipping advanced audio-reactive web applications that open in a browser. Dr.C Standalone is an Electron desktop application built to teach: it ships with a free-tier model out of the box, keeps sound design and code preview inside one embedded window, and adds three things the CLI does not have. A thumbs up/down feedback loop and a store of durable, user-stated “lessons” quietly steer future generations toward a student’s own taste, without ever modeling how skilled that student is. A force-directed Knowledge Graph page turns 34 people, 15 institutions, 25 techniques, and a dozen landmark works of computer music history into something a student can pan, zoom, and get lost in. A Player page turns any finished .csd into a MIDI instrument on the spot, with MIDI Learn binding a hardware knob to a Csound channel the moment it moves. Both tools share the same curated retrieval over the full text of The Csound Book, the FLOSS Manual, the Cabbage manual and instrument collection, the McCurdy Csound and Cabbage instrument library, the Boulanger Csound Catalog, the Csound Journal and Csound Magazine, the canonical Csound reference manual, and four decades of instruments drawn from the Csound mailing list, the CsoundQt example library, and historic catalogues by Mathews, Risset, and Dodge and Jerse, ported to Csound; both propose alternatives rather than finished code; both narrate the history behind a technique as they teach it; and both export working Cabbage plugins. This paper describes what each tool is for, why we built two instead of one, and what early classroom use is teaching us about sequencing AI-assisted synthesis instruction when the interface itself is a pedagogical choice.</p>
+                <p>Dr.C is a domain-specialized AI system for Csound. It exists as two independent products built around the same philosophy. Dr.C CLI is a terminal application, a two-column TUI with chat and version history on one side and a live CSD, waveform, and signal-flow view on the other, built for production: scripting, batch rendering, and shipping advanced audio-reactive web applications that open in a browser. Dr.C Standalone is a desktop application built to teach: it ships with a free-tier model out of the box, keeps sound design and code preview inside one embedded window, and adds three things the CLI does not have. A thumbs up/down feedback loop and a store of durable, user-stated “lessons” quietly steer future generations toward a student’s own taste, without ever modeling how skilled that student is. A force-directed Knowledge Graph page renders 34 people, 15 institutions, 25 techniques, and 12 landmark works of computer music history as an explorable, pannable, zoomable map. A Player page turns a finished .csd that exposes its parameters as channels into a MIDI instrument, with MIDI Learn binding a hardware knob to a Csound channel automatically, without manual mapping. Both tools share the same curated retrieval over four decades of Csound community publications, journals, and instrument collections; both propose alternatives rather than finished code; both narrate the history behind a technique as they teach it; and both export working Cabbage plugins. This paper introduces Dr.C as a new kind of collaborator for the Csound community: an AI tutor that draws on the same books, catalogs, and instrument collections its authors have taught from for over forty years, and that is already being integrated into how they teach and how their students explore, design, and compose.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-08">
-              <!-- PDF 39 -->
-              <h5 class="boa-title">Csound Brain Lab: A Web Environment for Performing and Researching Brain-Computer Music Interfaces</h5>
+              <!-- camera-ready 39 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-08.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Csound Brain Lab: A Web Environment for Performing and Researching Brain-Computer Music Interfaces</a></h5>
               <p class="boa-authors">Pedro Sodre, Richard Boulanger, Shiying (Amy) Chen, Wentao (James) Yuan, Xudong (Michael) Zhou, Luoxuan (Angela) Yu, Jiahe (Fancy) Fu and Yuwen (Liora) Meng</p>
               <div class="boa-abstract">
-                <p>The Csound Brain Lab (CBL) is a web-based application that lets anyone get started performing and researching Brain-Computer Music Interfaces (BCMI). It combines the flexible audio-synthesis building blocks of browser-based Csound with convenient web-Bluetooth connectivity to Muse and OpenBCI headsets, behind a beginner-friendly interface that lets users visualize and listen to their own live brain data, or experiment with a bank of EEG simulators when no sensor is at hand. The system also embeds both remote and on-device large-language models that perform multimodal analysis of EEG and musical material, helping novices find meaningful correlations between brain activity and sound. We give an overview of the three tools the environment is built around, namely the EEG Source Panel, the Perform tab, and the Research tab; we discuss the strategies by which CBL turns a continuous brain-wave stream into musical phrases; and we reflect on how a system like this can put the human, whether the listener, the student, or the family member, back at the center of the computer-music experience.</p>
+                <p>The Csound Brain Lab (CBL) is a web-based application that lets anyone get started performing and researching Brain-Computer Music Interfaces (BCMI). It combines the flexible audio-synthesis building blocks of browser-based Csound with one-click connectivity to Muse and OpenBCI headsets through a local bridge, behind a beginner-friendly interface that lets users visualize and listen to their own live brain data, or experiment with a built-in EEG simulator when no sensor is at hand. The system also embeds both remote and on-device large-language models that perform multimodal analysis of EEG and musical material, helping novices find meaningful correlations between brain activity and sound. We describe the mapping layer, in which a chosen target state, a continuously measured affinity to it, and musical parameters expressed as interpolated endpoint pairs together decide what an instrument plays; and we report four preliminary research studies and two EEG composition and performance systems now being prepared with it, each packaged as an application of its own.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-09">
-              <!-- PDF 35 -->
-              <h5 class="boa-title">Csound in the MetaVerse - Make It Yours: Personalizing Instruments, Worlds, and Live Sound in CsoundMeta</h5>
+              <!-- camera-ready 35 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-09.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Csound in the MetaVerse - Make It Yours: Personalizing Instruments, Worlds, and Live Sound in CsoundMeta</a></h5>
               <p class="boa-authors">Strong Bear, Richard Boulanger</p>
               <div class="boa-abstract">
-                <p>CsoundMeta is an immersive multiplayer environment, built in Unity for Meta Quest headsets, that lets performers touch, shape, and share Csound instruments as physical objects in a shared virtual or physical space. Since the system’s Orbs, Wanderers, and AI-generated Skybox worlds were first introduced, our central goal has shifted from handing performers a curated palette to play with, toward giving every Csounder the tools to build that palette themselves. This paper documents three developments that carry that goal forward. First, performers can now bring their own Csound work directly into the headset: any .csd file becomes an importable sound for an Orb or Wanderer, and Cabbage-authored .snaps files import as ready-to-use presets, so a patch built at a desk can be played, thrown, and squeezed the same evening. Second, the AI-generated Skybox worlds that once came from a fixed, curated set can now be prompted, remixed, and renamed from inside the headset itself, and every performer, whether standing shoulder to shoulder or joining from across the world, lands in the same generated room and can hand instruments to one another there. Third, and perhaps most consequential for ensemble work, we rebuilt the live audio pipeline around a native, low-latency engine that carries the microphone-to-effect-to-speaker signal path outside Unity’s own audio thread, bringing round-trip latency under 25 milliseconds, and introduced a dedicated, proximity-gated Mic instrument, passed hand to hand like any other object, and an overdub-capable sampler that can record from any source in the patch. We also describe the session tools, AI-generated backing tracks, and in-headset tutorials that keep a room full of personalized instruments and new performers from tipping into chaos. Together, these features move CsoundMeta from a system performers play inside toward a system they compose, build, and record in, one shaped as much by the Csound community as by its designers.</p>
+                <p>CsoundMeta is an immersive multiplayer environment, built in Unity for Meta Quest headsets, that lets performers touch, shape, and share Csound instruments as physical objects in a shared virtual or physical space. Since the system’s Orbs, Wanderers, and AI-generated Worlds were first introduced, our central goal has shifted from handing performers a curated palette to play with, toward giving every Csounder the tools to build that palette themselves. This paper documents three developments that carry that goal forward. First, performers can now bring their own Csound work into CsoundMeta from further away than the headset itself: any .csd file becomes an importable sound for an Orb or Wanderer, Cabbage-authored .snaps files import as ready-to-use presets, and a companion web application now lets a performer upload an instrument, complete with its samples, from a desktop browser, with a Dr.C-based assistant on hand to help design, modify, and debug a Csound instrument that will not yet compile. Second, the AI-generated Worlds that once came from a fixed, curated set can now be prompted, remixed, and renamed from inside the headset itself, and repositioned and rotated so a stage arrangement rehearsed at home lines up exactly once the same World is loaded on the performance stage, and every performer, whether standing shoulder to shoulder or joining from across the world, lands in the same generated room and can hand instruments to one another there. Third, and perhaps most consequential for ensemble work, we rebuilt the live audio pipeline around a native engine that carries the microphone-to-effect-to-speaker signal path outside Unity’s own audio thread, fast enough that we now rely on it for real-time capture, playback, and processing shared live across every client in a session rather than kept local to one, and judge it, as musicians do, by ear. Around that engine we added a dedicated, proximity-gated Mic instrument that can also serve the whole session as one shared microphone with automatic handover between performers, an overdub-capable sampler that records from any source in the patch and shares every take across the room instead of keeping it local, and a separate spatialized voice channel with hands-free push-to-talk for talking through a session without breaking it. We also describe the session tools and in-headset tutorials that keep a room full of personalized instruments and new performers from tipping into chaos. Together, these features move CsoundMeta from a system performers play inside toward a system they compose, build, and record in, one shaped as much by the Csound community as by its designers.</p>
               </div>
             </article>
           </section>
@@ -216,11 +221,11 @@
           <section class="boa-group">
             <h4 class="boa-session">Utilizing Csound on embedded systems</h4>
             <article class="boa-item" id="paper-10">
-              <!-- PDF 91 -->
-              <h5 class="boa-title">Csound on Embedded Risc V and Xtensa Architectures</h5>
+              <!-- camera-ready 91 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-10.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Csound on Embedded Risc V and Xtensa Architectures</a></h5>
               <p class="boa-authors">Aman Jagwani, Victor Lazzarini</p>
               <div class="boa-abstract">
-                <p>With Csound 7, support for bare-metal microcontrollers with ARM Cortex CPUs was introduced. This allowed Csound applications to target these embedded platforms without OS dependencies for the first time, expanding the possibilities in application areas such as custom instrument design, interactive art installations, and DIY performance systems. This paper extends this work to two more embedded architectures, RISC-V and Xtensa, through the introduction of Csound for the ESP32 series of microcontrollers. These chips are widely available, very inexpensive, low-power, usually dual-core, and support extensive wireless networking capabilities. They also run FreeRTOS, providing an unexplored middle ground between bare-metal systems without schedulers and complete operating systems. This balance between extensive features and accessibility makes them an ideal target for expanding Csound’s range of supported platforms. In this paper, we describe the process of porting Csound to these platforms, highlight their benefits and limitations in relation to previously supported platforms, and discuss potential use cases and applications of Csound on these platforms.</p>
+                <p>With Csound 7, support for bare-metal microcontrollers with ARM Cortex CPUs was introduced. This allowed Csound applications to target these embedded platforms without OS dependencies for the first time, expanding the possibilities in areas such as custom instrument design, interactive art installations, and DIY performance systems. This paper extends this work to two more embedded architectures, RISC-V and Xtensa, through the introduction of Csound for the ESP32 series of microcontrollers. These chips are widely available, very inexpensive, low-power, usually dual-core, and support extensive wireless networking capabilities. They also run FreeRTOS, providing an unexplored middle ground between bare-metal systems without schedulers and complete operating systems. This balance between extensive features and accessibility makes them an ideal target for expanding Csound’s range of supported platforms. In this paper, we describe the process of porting Csound to these platforms, highlight their benefits and limitations in relation to previously supported platforms, and discuss potential use cases and applications of Csound on these platforms.</p>
               </div>
             </article>
           </section>
@@ -235,51 +240,51 @@
           <section class="boa-group">
             <h4 class="boa-session">Innovations in sound synthesis and processing techniques</h4>
             <article class="boa-item" id="paper-11">
-              <!-- PDF 28 -->
-              <h5 class="boa-title">OnLive 音: A Browser-Based Real-Time Audio Effects System Using Csound</h5>
+              <!-- camera-ready 28 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-11.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">OnLive 音: A Browser-Based Real-Time Audio Effects System Using Csound</a></h5>
               <p class="boa-authors">Lihong Tao, Richard Boulanger</p>
               <div class="boa-abstract">
-                <p>Many digital sound tools are powerful, but the technical barrier to entry in DAWs can make them hard to approach. This paper presents OnLive 音, a browser-controlled real-time audio effects console for live input and uploaded samples, built on Csound with a React performance interface. It treats real-time audio processing like a pedalboard rather than a production suite: the user picks an audio source, toggles effects, adjusts controls, and hears the result immediately, without having to build a full digital audio workstation (DAW) session. And every effect can be opened to reveal the Csound .csd file behind it, so users can see exactly how each sound is made and start learning Csound itself. This paper explores how a browser interface can make the depth of Csound directly playable in live performance, through the design and validation of OnLive 音.</p>
+                <p>Many digital sound tools are powerful, but the technical barrier to entry in DAWs can make them hard to approach. This paper presents OnLive 音, a browser-controlled real-time audio effects console for live input and uploaded samples, built on Csound with a React performance interface. It treats real-time audio processing like a pedalboard rather than a production suite: the user picks an audio source, toggles effects, adjusts controls, and hears the result immediately, without having to build a full digital audio workstation (DAW) session. And every effect can be opened to reveal the Csound .csd file behind it, so users can see exactly how each sound is made and start learning Csound itself. This paper explores how a browser interface can make the depth of Csound directly playable in live performance, through the design and implementation of OnLive 音.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-12">
-              <!-- PDF 53 -->
-              <h5 class="boa-title">An Analysis-Guided Workflow for Constructing Playable Csound Physical Models: A Tupipa Case Study</h5>
+              <!-- camera-ready 53 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-12.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">An Analysis-Guided Workflow for Constructing Playable Csound Physical Models: A Tupipa Case Study</a></h5>
               <p class="boa-authors">Yao Ma, Wanjun Yang</p>
               <div class="boa-abstract">
                 <p>The Tupipa is a traditional three-string plucked lute from southwest China whose sound is preserved mainly through recordings and documentation. Its three strings form two courses: a double course tuned in unison and a single-string course, the latter providing a controlled first case for playable modeling. Such materials document performance practice but do not provide playable controls for physical-model synthesis. This paper presents an analysis-guided workflow for constructing playable Csound physical models from recordings, supplemented by limited physical measurements. The workflow combines ATS and time-domain analysis of recordings with rule-based parameter initialization, diagnostic acoustic-descriptor comparison, bounded local parameter search, and listening-panel calibration. The case study therefore focuses on the single-string course and links measured plucking position, ATS F0, partial balance, decay, and residual/noise cues to Csound controls. In the model-construction stage, initialized controls are instantiated as a four-layer Csound instrument: a wgpluck2 core string-vibration layer, a plectrum-contact layer, a friction/noise layer, and a body-response layer. Rather than introducing another instrument-specific synthesizer, the study shows how recordings can become playable, physically interpretable Csound instruments while retaining listening judgment in the final calibration stage.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-13">
-              <!-- PDF 63 -->
-              <h5 class="boa-title">Four Routes Through Hyperspace: Wavetable Navigation Strategies via Givens Rotations</h5>
+              <!-- camera-ready 63 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-13.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Four Routes Through Hyperspace: Wavetable Navigation Strategies via Givens Rotations</a></h5>
               <p class="boa-authors">Luca Bimbi, Anthony Di Furia, Giuseppe Silvi</p>
               <div class="boa-abstract">
-                <p>This paper presents an approach to navigating the hyperspace of a wavetable, interpreted as a vector in ℝ<sup>N</sup>, based on Givens rotations. A discrete audio signal of N samples is treated as a point in N-dimensional Euclidean space; Givens rotations, acting on pairs of coordinates through the sine and cosine of an angle, displace this point while preserving the L<sup>2</sup> norm. Four strategies for selecting rotation pairs and angles are proposed and compared: a local adjacent chain, a non-local prime step, Sobol quasi-random sequences, and a Kuramoto coupled-oscillator model. Each strategy is realized both as an interactive Python prototype and as a Csound plugin opcode operating on 1024-sample wavetables.</p>
+                <p>This paper presents an approach to navigating the hyperspace of a wavetable, interpreted as a vector in ℝ<sup>N</sup>, based on Givens rotations. A discrete audio signal of N samples is treated as a point in N-dimensional Euclidean space; Givens rotations, acting on pairs of coordinates through the sine and cosine of an angle, displace this point while preserving the L<sup>2</sup> norm. Four strategies for selecting rotation pairs and angles are proposed and compared: a local adjacent chain, a non-local prime step, Sobol quasi-random sequences, and a Kuramoto coupled-oscillator model. Each strategy is realized both as an interactive Python prototype and as a Csound plugin opcode operating on 1024-sample wavetables. A preliminary, qualitative audio observation of the four strategies under controlled parameter sweeps is also reported, with a supplementary rendering dataset.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-14">
-              <!-- PDF 95 -->
-              <h5 class="boa-title">A Vision-to-Music System for Accessible Interactive Sound Experiences Using Computer Vision and Csound</h5>
+              <!-- camera-ready 95 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-14.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">A Vision-to-Music System for Accessible Interactive Sound Experiences Using Computer Vision and Csound</a></h5>
               <p class="boa-authors">Will Chen, Richard Boulanger</p>
               <div class="boa-abstract">
-                <p>This paper presents a real-time vision-to-music system designed to provide an accessible and interactive auditory experience for people with visual impairments. A webcam captures the surrounding environment while a Python application using OpenCV [7] extracts object position, relative size, and dominant color. These visual features are transmitted to Csound using Open Sound Control (OSC) [6], where five synthesis instruments generate a continuously evolving musical soundscape. Object position controls stereo panning and musical pitch, while relative object size modifies filter cutoff, reverberation, and delay. The proposed system demonstrates how computer vision and real-time sound synthesis using Csound [1] can provide an alternative form of environmental interaction beyond traditional speech-based assistive technologies.</p>
+                <p>This paper presents a real-time vision-to-music system designed to explore an accessible and interactive auditory experience for people with visual impairments. A webcam feeds a Python/OpenCV application that identifies up to five prominent colored regions as object candidates and extracts each one’s position, relative size, and dominant color. These features travel to Csound over Open Sound Control (OSC), where five continuously running synthesis instruments turn them into an evolving soundscape: horizontal position sets stereo panning; vertical position controls pitch, chord voicing, or rhythmic pattern depending on the voice; relative size shapes amplitude, filter cutoff, reverberation, and delay; and the scene’s dominant color selects one of eight musical modes shared by all five voices, so color becomes harmony. The soundscape continues to evolve through timed chord changes and slow modulation even when the visual scene remains still. The system demonstrates how computer vision and real-time synthesis in Csound can support a musical, nonverbal form of environmental interaction alongside existing assistive approaches.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-15">
-              <!-- PDF 9 -->
-              <h5 class="boa-title">Binaural Explorer: Theta. A Csound &amp; Cabbage-based System for Real-Time Auditory Entrainment</h5>
+              <!-- camera-ready 9 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-15.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Binaural Explorer: Theta. A Csound &amp; Cabbage-based System for Real-Time Auditory Entrainment</a></h5>
               <p class="boa-authors">Yuqi Wu, Richard Boulanger</p>
               <div class="boa-abstract">
-                <p>This paper presents Binaural Explorer: Theta, a cross-platform Cabbage plugin that embeds precise theta-frequency binaural beats directly into existing music, generative soundscapes, and live DAW environments. Leveraging the Csound synthesis engine, the plugin applies a real-time spectral phase vocoder to superimpose a neurologically-active theta differential (4.0–7.2 Hz) onto arbitrary audio signals without degrading the underlying sonic structure. Users can substitute source tracks, activate a fully binauralized generative composition mode, and fine-tune target beat frequencies via granular controls. The system includes dynamic visual feedback (a pulsing “beating cabbage” graphic scaled to the live theta rate), an interactive educational mode, and a linked informational pane for psychoacoustic study. A small early-adopter cohort reported reduced sleep latency, enhanced study focus, and a striking expansion of the perceived soundstage. Functioning as both a research utility and a pedagogical toolkit, this readily-customizable open-source tool supports informal clinical research, interactive sonification, and meditation practice.</p>
+                <p>This paper presents Binaural Explorer: Theta, a cross-platform Cabbage plugin that embeds precise theta-frequency binaural beats directly into existing music, generative soundscapes, and live DAW environments. The plugin uses the Csound synthesis engine to apply a real-time spectral phase vocoder, superimposing a neurologically-active theta differential (4.0–7.2 Hz) onto arbitrary audio signals without degrading the underlying sonic structure. Users can substitute source tracks, activate a fully binauralized generative composition mode, and fine-tune target beat frequencies via granular controls. The system includes dynamic visual feedback (a pulsing “beating cabbage” graphic scaled to the live theta rate), an interactive educational mode, and a linked informational pane for psychoacoustic study. A small early-adopter cohort reported reduced sleep latency, enhanced study focus, and a striking expansion of the perceived soundstage. This readily-customizable, open-source tool functions as both a research utility and a pedagogical toolkit, supporting informal clinical research, interactive sonification, and meditation practice.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-16">
-              <!-- PDF 61 -->
-              <h5 class="boa-title">A Rapid Opcode Development Workflow for Real-Time Physical Modelling in Csound</h5>
+              <!-- camera-ready 61 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-16.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">A Rapid Opcode Development Workflow for Real-Time Physical Modelling in Csound</a></h5>
               <p class="boa-authors">Juliette Tudoce, Vasileios Chatziioannou, Alex Hofmann</p>
               <div class="boa-abstract">
-                <p>Implementing a custom physical modelling opcode in Csound requires fluency in C programming, a skill that remains a significant barrier for many musicians and researchers in music acoustics, despite the strong potential of physics-based sound synthesis. This paper presents a rapid development workflow for creating a Csound opcode. We use the case study of the Đàn Bầu, a Vietnamese monochord instrument plucked by the right hand and pitch-bended by the left hand through a stem that modulates the tension of the string. Starting from a generic string model drawn from the acoustics literature, we first prototyped it in Python, allowing for straightforward implementation and assessment of the energy balance. We then translated the Python code into C with the help of Large Language Models (LLMs), reducing the time typically required for this transition. Finally, the resulting C code was manually adapted into an opcode plugin, enabling its integration into Csound. This case study demonstrates that the complete process from mathematical model to performable instrument through Csound can be achieved rapidly, even by someone without deep C programming expertise. The workflow presented here offers a replicable template for musicians and researchers in music acoustics wanting to develop other physical modelling opcodes for real-time implementation in Csound.</p>
+                <p>Implementing a custom physical modelling opcode in Csound requires fluency in C programming, a skill that remains a significant barrier for many musicians and researchers in music acoustics, despite the strong potential of physics-based sound synthesis. This paper presents a development workflow for creating a Csound opcode, illustrated through the case study of the Đàn Bầu, a Vietnamese monochord instrument plucked by the right hand and pitch-bended by the left hand through a stem that modulates the tension of the string. Starting from a generic string model drawn from the acoustics literature, we first prototyped it in Python, allowing for straightforward implementation and assessment of the energy balance. We then translated the Python code into C with the help of Large Language Models (LLMs), which produced a functionally correct translation in a single pass. Finally, the resulting C code was manually adapted into an opcode plugin, enabling its integration into Csound. This case study suggests that the complete process from mathematical model to performable instrument through Csound can be achieved without deep C programming expertise. The workflow presented here offers an illustrative example that musicians and researchers in music acoustics may draw on when developing other physical modelling opcodes for real-time implementation in Csound.</p>
               </div>
             </article>
           </section>
@@ -287,19 +292,19 @@
           <section class="boa-group">
             <h4 class="boa-session">Performer skills in Live-electronics</h4>
             <article class="boa-item" id="paper-17">
-              <!-- PDF 93 -->
-              <h5 class="boa-title">Spatial Agents: A Timbre-Driven Ambisonic Instrument for Live Electronics in Csound and Max</h5>
+              <!-- camera-ready 93 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-17.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Spatial Agents: A Timbre-Driven Ambisonic Instrument for Live Electronics in Csound and Max</a></h5>
               <p class="boa-authors">Alberto Maria Gatti, Francesco Perissi</p>
               <div class="boa-abstract">
                 <p>Spatial Agents is a live-electronics instrument built on a single premise: that the place of a live sound should follow its timbre. Five piezoelectric contact microphones on a hand-built resonating box are analysed in real time into five audio descriptors, and those descriptors move five autonomous sources, or agents, through an Ambisonic field decoded to a horizontal loudspeaker ring or to headphones. The paper is as much about a compositional stance as about a system. Following a tradition of spectral and timbre spatialisation, we treat space not as a container for sound but as a dimension the performer shapes directly: a still, pure resonance settles near the centre of the field, a bright gesture rises, a noisy evolving texture is thrown to the periphery and set spinning. We describe how the descriptors map to motion, focusing on a mapping in which spectral stillness and purity pull a source inward while spectral change pushes it outward, and we explain why we run Csound as the engine inside Max rather than Csound alone: the pairing joins Csound’s analysis and synthesis vocabulary and its portable, sample-accurate processing to the live routing, control and visual feedback that a performance patch needs. The Ambisonic decoder uses the ACN/SN3D convention and is rebuilt at run time from a description of the loudspeaker layout. The approach adapts a descriptor-driven spatialization model previously introduced for corpus-based improvisation; what is new here is a self-contained Csound engine, built from scratch and driven live by a physical contact-microphone instrument rather than a pre-analysed corpus. The instrument is functional and has been validated; we close with the compositional questions it opens and with work still in progress.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-18">
-              <!-- PDF 17 -->
-              <h5 class="boa-title">One Environment, One Chain: Csound's arduinoRead as a Native Sensor Interface for Performance-Oriented IMU Control</h5>
+              <!-- camera-ready 17 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-18.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">One Environment, One Chain: Csound's arduinoRead as a Native Sensor Interface for Performance-Oriented IMU Control</a></h5>
               <p class="boa-authors">Jinlan Zhao, Richard Boulanger</p>
               <div class="boa-abstract">
-                <p>Live performance leaves little room for a sensor pipeline that misfires. When a violinist’s gesture is intended to trigger one sound but produces two, the error is immediate and audible, and mapping design alone cannot fully compensate for it. This paper presents L-Bow, a wrist-worn six-degree-of-freedom (6-DoF) inertial measurement unit (IMU) controller for augmented violin performance, designed and built by the author, and asks whether the sensor-to-sound pipeline can be made more reliable by removing an intermediate software layer. L-Bow integrates gesture sensing, six performance modes, and a shared effects chain within a single self-contained Csound file, using Csound’s native arduinoRead opcode for Arduino communication rather than a Python serial parser and OSC bridge. A controlled trigger test comparing the two workflows showed a modest latency advantage for the native path. The paper discusses what this means for designing dependable, low-maintenance performance systems, and where the native approach still falls short.</p>
+                <p>Live performance leaves little room for a sensor pipeline that misfires. When a violinist’s gesture is intended to trigger one sound but produces two, the error is immediate and audible, and mapping design alone cannot fully compensate for it. This paper presents L-Bow, a wrist-worn six-degree-of-freedom (6-DoF) inertial measurement unit (IMU) controller for augmented violin performance, designed and built by the authors, and asks whether the sensor-to-sound pipeline can be made more reliable by removing an intermediate software layer. L-Bow integrates gesture sensing, six performance modes, and a shared effects chain within a single self-contained Csound file, using Csound’s native arduinoRead opcode for Arduino communication rather than a Python serial parser and OSC bridge. A controlled trigger test comparing the two workflows showed a modest latency advantage for the native path. The paper discusses what this means for designing dependable, low-maintenance performance systems, and where the native approach still falls short.</p>
               </div>
             </article>
           </section>
@@ -307,19 +312,19 @@
           <section class="boa-group">
             <h4 class="boa-session">Algorithmic composition and sound processing techniques with Csound</h4>
             <article class="boa-item" id="paper-19">
-              <!-- PDF 50 -->
-              <h5 class="boa-title">csonus: An open-source collection of opcodes for algorithmic composition and experimental sound design</h5>
+              <!-- camera-ready 50 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-19.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">csonus: An open-source collection of opcodes for algorithmic composition and experimental sound design</a></h5>
               <p class="boa-authors">Valerio Orlandini</p>
               <div class="boa-abstract">
-                <p>While the Csound ecosystem provides a vast library of tools for synthesis and signal processing, practitioners in real-time algorithmic composition and experimental sound design often encounter a gap in native, instrument-level opcodes for complex generative processes. This limitation frequently forces composers into hybrid workflows with external environments, introducing latency and synchronization overhead. This paper introduces csonus, an open-source collection of C++ opcodes designed to bridge this gap by integrating algorithmic composition and sound generation techniques directly into the Csound instrument block. Built using the Csound Plugin Opcode Framework (CPOF), the package provides efficient, real-time implementations of diverse tools, including chaotic systems, cellular automata, Lindenmayer systems, and neural network-driven synthesis. By enabling tightly coupled, multi-level algorithmic decision-making and experimental sound manipulation without external dependencies, csonus fosters a more integrated workflow for both studio and live-electronics contexts. The library is written in modern C++ and is publicly available under the MIT license.</p>
+                <p>While the Csound ecosystem provides a vast library of tools for synthesis and signal processing, practitioners in real-time algorithmic composition and experimental sound design often encounter a gap in native, instrument-level opcodes for complex generative processes. This limitation frequently forces composers into hybrid workflows with external environments, introducing latency and synchronization overhead. This paper introduces csonus, an open-source collection of C++ opcodes designed to bridge this gap by integrating algorithmic composition and sound generation techniques directly into the Csound instrument block. Built using the Csound Plugin Opcode Framework (CPOF), the package provides efficient implementations of diverse tools, including chaotic systems, cellular automata, Lindenmayer systems, and neural network-driven synthesis. By enabling tightly coupled, multi-level algorithmic decision-making and experimental sound manipulation without external dependencies, csonus fosters a more integrated workflow for both studio and live electronics contexts. The library is written in modern C++ and is publicly available under the MIT license.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-20">
-              <!-- PDF 33 -->
-              <h5 class="boa-title">From Brainwaves to Csound: An Exploratory Audiovisual System with EEG and LLM-Based Agent Control in Unity</h5>
+              <!-- camera-ready 33 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-20.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">From Brainwaves to Csound: An Exploratory Audiovisual System with EEG and LLM-Based Agent Control in Unity</a></h5>
               <p class="boa-authors">Chuhan Gao, Richard Boulanger, Mateo Larrea Ferro</p>
               <div class="boa-abstract">
-                <p>We present an exploratory audiovisual biofeedback system that couples real-time EEG, a large language model (LLM) agent, and Csound, turning a listener’s brain activity into evolving sound and a synchronized visual scene. NeurOSC, a Python program, extracts five EEG band powers and broadcasts them over OSC; inside Unity, a platform for creating real-time, interactive 3D content, these become baseline-normalized features and one of five mental states. Two paths then drive a continuously running Csound instrument through CsoundUnity: a continuous path maps brain features to synthesis parameters every frame, while the LLM agent makes larger, coordinated changes on state transitions and shapes a matching visual scene. We report two contributions: parameter auto-discovery, by which a self-describing Csound instrument (a Cabbage header) can be controlled by the agent with no manual registration; and a two-path mapping pairing continuous biofeedback with discrete agent actions. Running with both OpenBCI and Muse headsets, the system is an early step toward treating physiological signals as an expressive, real-time control source for Csound.</p>
+                <p>We present an exploratory audiovisual biofeedback system that integrates real-time electroencephalogram (EEG) signals, large language model (LLM)-based assistance, and Csound within Unity, a real-time game engine, transforming a listener’s brain activity into continuously evolving sound and a synchronized visual scene. NeurOSC, a Python-based EEG acquisition and signal-processing layer, estimates power within five predefined EEG frequency bands, calculates their cross-channel mean relative composition, and sends these features to Unity via Open Sound Control (OSC). Unity converts the features into Z-scores using a calibration reference established for the current session and assigns one of five system-defined state labels: Focused, Relaxed, Aroused, Drowsy, or Neutral. The system uses an LLM in two roles. Before a session, a mapping assistant combines the creator’s natural-language intent with a catalog of Csound parameters parsed from the instrument’s Cabbage header and proposes EEG-to-Csound bindings that the creator can audition and revise. At run time, a scene agent responds to confirmed state transitions and other configured events. It sets larger-scale base targets for selected Csound parameters and issues coordinated visual actions, while a continuous path maps changing EEG features to smaller-scale modulation around those targets. The prototype runs in real time with a Muse S Athena headset and includes a simulator for development without hardware. Its contributions are a human-in-the-loop mapping workflow that combines parameter auto-discovery with LLM-generated suggestions, and a two-path architecture that combines continuous physiological modulation with discrete, context-informed audiovisual changes.</p>
               </div>
             </article>
           </section>
@@ -327,11 +332,11 @@
           <section class="boa-group">
             <h4 class="boa-session">Exploring Csound's educational potential</h4>
             <article class="boa-item" id="paper-21">
-              <!-- PDF 103 -->
-              <h5 class="boa-title">Orchestrating an Interpreter: Csound7 as a Host for Symbolic Programs</h5>
+              <!-- camera-ready 103 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-21.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Orchestrating an Interpreter: Csound7 as a Host for Symbolic Programs</a></h5>
               <p class="boa-authors">Hlöðver Sigurðsson</p>
               <div class="boa-abstract">
-                <p>This paper evaluates whether Csound7’s Orchestra language is mature enough to host complex symbolic programs, not just sound and music systems. As a case study, I implemented a Clojure-inspired Lisp interpreter entirely in Orchestra using the Make-A-Lisp process. The interpreter exercises recursive structs, typed user-defined opcodes, arrays, dynamic compilation, lexical environments, closures, macros, tail calls, exceptions, interactive input, and Csound-native musical constructs. The work exposed defects in type propagation, nested struct arrays, overload selection, pass-by-reference semantics, recursion safety, and default initialization, leading to reduced tests and improvements in Csound7. The main remaining limitation is memory lifetime: temporary recursive values persist until the enclosing instrument ends, preventing reliable self-hosting. The result shows that Csound7 can support substantial symbolic programs close to its music engine, while allocation-heavy programs still require better lifetime control.</p>
+                <p>This paper evaluates Csound7’s Orchestra language as a host for complex symbolic programs. As a case study, I implemented a Clojure-inspired Lisp interpreter entirely in Orchestra using the Make-A-Lisp process. The interpreter uses recursive structs, arrays, and typed user-defined opcodes to implement lexical environments, closures, macros, tail calls, and exceptions. A musical example uses first-class graph values to build instruments and schedule musical patterns, keeping the symbolic program and audio engine in one process. The work exposed defects in type propagation, nested struct arrays, overload selection, pass-by-reference semantics, recursion safety, and default initialization, leading to fixes merged into Csound7’s development branch. The main limitation in the version studied here was memory lifetime: temporary recursive values persisted until the enclosing instrument ended, making even a small self-hosting test costly in memory. The result shows that Csound7 can support substantial symbolic programs close to its music engine, and that the lifetime of structured values matters for programs that allocate heavily.</p>
               </div>
             </article>
           </section>
@@ -339,27 +344,27 @@
           <section class="boa-group">
             <h4 class="boa-session">Unleashing creativity and fostering interdisciplinary collaborations through Csound projects</h4>
             <article class="boa-item" id="paper-22">
-              <!-- PDF 4 -->
-              <h5 class="boa-title">A Toolkit for Empirical Impulse Response Preparation</h5>
+              <!-- camera-ready 4 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-22.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">A Toolkit for Empirical Impulse Response Preparation</a></h5>
               <p class="boa-authors">Victor Lazzarini</p>
               <div class="boa-abstract">
-                <p>Empirical impulse responses can be obtained by measuring physical systems. Csound has built-in means for utilising these in musical applications through its various types of convolution opcodes. Until now, it lacked out-of-the-box means for preparing empirical impulse responses, although this can actually be implemented from first principles in Csound code. This paper introduces a native toolkit developed for this purpose, in three forms: a utility, a GEN, and opcodes.</p>
+                <p>Empirical impulse responses can be obtained by measuring physical systems. Csound has built-in means for utilising these in musical applications through its various types of convolution opcodes. Until now, the system lacked out-of-the-box means for preparing empirical impulse responses, although this can actually be implemented from first principles in Csound code. This paper introduces a native toolkit developed for this purpose, in three forms: a utility, a GEN, and opcodes.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-23">
-              <!-- PDF 82 -->
-              <h5 class="boa-title">Immersive Engagement: Building the "Wildtrace" Sonic World with AI Assistance</h5>
+              <!-- camera-ready 82 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-23.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Immersive Engagement: Building the "Wildtrace" Sonic World with AI Assistance</a></h5>
               <p class="boa-authors"><span>Haokun Yang, Wanjun Yang</span><span>Presenter: Miao Zhang</span></p>
               <div class="boa-abstract">
-                <p>Addressing the bottlenecks of high cost and long cycles in custom audio plugin development, this study proposes an agile workflow based on the synergy between Csound and Large Language Models (LLMs). On this basis, we developed ”Wildtrace”, an algorithm-driven quadraphonic spatial audio plugin suite. This paper systematically elaborates its development logic and AI collaboration mechanism, providing a novel paradigm for agile audio prototype development in resource-constrained environments.</p>
+                <p>This paper addresses the high cost and long development cycles of custom audio plugins by proposing an agile workflow that couples Csound with large language models (LLMs). Building on this workflow, we developed Wildtrace, a quadraphonic spatial audio plugin suite driven by a family of generative algorithms. The core idea of the suite is to invert the usual premise of spatial audio design: rather than moving sound objects through space as an end in itself, it treats the spatial motion of sound as the engine that drives sonic effects such as Doppler shift, panning, granulation, and chorus, so that motion shapes the sound instead of merely positioning it. The paper systematically describes the development logic, the human–AI collaboration model, the layered technical architecture built around a replaceable global renderer, and the self-designed front-end interaction. We assess the approach against conventional C++ plugin development: although no systematic benchmarks were run, the qualitative evidence is encouraging—eight plugins were completed and tested in under one month at zero direct API cost, demonstrating a viable paradigm for agile audio prototyping under resource constraints.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-24">
-              <!-- PDF 72 -->
-              <h5 class="boa-title">Neural Virtual Analog Modeling in Csound via Real-Time Recurrent Inference</h5>
+              <!-- camera-ready 72 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-24.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Neural Virtual Analog Modeling in Csound via Real-Time Recurrent Inference</a></h5>
               <p class="boa-authors">Ken Kobayashi</p>
               <div class="boa-abstract">
-                <p>Csound’s native virtual analog opcodes rely on fixed algorithmic structures that cannot learn transfer functions from empirical data or capture physical analog hardware. We present a real-time neural inference pipeline integrating Csound’s C++ Plugin Opcode Framework (CPOF) with the RTNeural engine, executing stateful recurrent networks directly within Csound orchestra syntax. We evaluate the pipeline on two targets: a parameterized 4-pole Moog ladder filter trained on oversampled numerical simulations, and a fixed-setting analog distortion pedal trained on physical loopback recordings. For the filter, shortening the loss-masked training warmup to 256 samples forces rapid convergence from a cold hidden state, enabling click-free note-on with only a brief output ramp; reducing the warmup further to 128 samples reduces static ESR at the 100 Hz cutoff by 7.6 dB. A multi-rate LFO training regime addresses dynamic tracking degradation: a static-trained 128-unit baseline degrades by 17.3 dB under a 5 Hz cutoff sweep, while multi-rate LFO training compresses rate-dependent variance to 3.6 dB across 1–20 Hz on held-out audio. The same recurrent architecture, without the cutoff input, achieves −29.3 dB held-out ESR and −37.9 dB aliasing-to-signal ratio at 8 kHz on the hardware distortion pedal when trained via pre-emphasized ESR on loopback recordings. Deployed 128-unit GRU opcodes consume under 17% CPU per voice, sustaining 6-voice polyphony at 48 kHz.</p>
+                <p>Csound’s native virtual analog opcodes rely on fixed algorithmic structures that cannot learn transfer functions from empirical data or capture physical analog hardware. We present a real-time neural inference pipeline integrating Csound’s C++ Plugin Opcode Framework (CPOF) with the RTNeural engine, executing stateful recurrent networks directly within Csound orchestra syntax. We evaluate the pipeline on two targets: a parameterized 4-pole Moog ladder filter trained on oversampled numerical simulations, and a fixed-setting analog distortion pedal trained on physical loopback recordings. For the filter, shortening the loss-masked training warmup to 256 samples forces rapid convergence from a cold hidden state, enabling click-free note-on with only a brief output ramp; reducing the warmup further to 128 samples reduces static ESR at the 100 Hz cutoff by 7.6 dB. A multi-rate LFO training regime addresses dynamic tracking degradation: a static-trained 128-unit baseline degrades by 17.3 dB under a 5 Hz cutoff sweep, while multi-rate LFO training compresses rate-dependent variance to 3.6 dB across 1–20 Hz on held-out audio. The same recurrent architecture, without the cutoff input, achieves −29.3 dB held-out ESR and −37.9 dB aliasing-to-signal ratio at 8 kHz on the hardware distortion pedal when trained via pre-emphasized ESR on loopback recordings. Deployed 128-unit Gated Recurrent Unit (GRU) opcodes consume under 17% CPU per voice, sustaining 6-voice polyphony at 48 kHz.</p>
               </div>
             </article>
           </section>
@@ -374,11 +379,12 @@
           <section class="boa-group">
             <h4 class="boa-session">Real-time implementation of Csound</h4>
             <article class="boa-item" id="paper-25">
-              <!-- PDF 73 -->
-              <h5 class="boa-title">Real-Time Song Generation: A Csound API Case Study</h5>
+              <!-- camera-ready 73 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-25.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Real-Time Song Generation: A Csound API Case Study</a></h5>
               <p class="boa-authors">Garrett Eckl, Steven Yi, Edward Costello, Leonardus Van Der Ploeg</p>
               <div class="boa-abstract">
-                <p>This case study presents RIFFIT, a commercial text-to-song platform that utilizes the Csound audio programming language. This platform enables users to turn any text into a fully-produced song in near real-time, with a variety of genres and voice models to select from. Csound serves as the platform’s primary synthesis engine, performing a custom CSD file that is dynamically generated based on both the inputted text and selected musical preferences. This paper begins with a brief introduction to the field of automatic music generation, which is followed by an overview of the RIFFIT platform and key developments that have occured to date. An outline of the software’s architecture is then provided, with topics including the dynamic generation of Csound code, the manual performance of Csound files via the Csound API, and strategies for the web deployment of Csound-enabled software. Lastly, an analysis of Csound’s suitability to such commercial applications is discussed.</p>
+                <p>This case study presents RIFFIT, a commercial text-to-song platform that utilizes the Csound audio programming language. This platform enables users to turn any text into a fully-produced song in near real-time, with a variety of genres and voice models to select from. Csound serves as the platform’s primary synthesis engine, performing a custom CSD file that is dynamically generated based on both the inputted text and selected musical preferences.</p>
+                <p>This paper begins with a brief introduction to the field of automatic music generation, which is followed by an overview of the RIFFIT platform and key developments that have occurred to date. The software’s architecture is then outlined, with topics including the dynamic generation of Csound code, the manual performance of Csound files via the Csound API, and strategies for the web deployment of Csound-enabled software. Lastly, an analysis of Csound’s suitability for such commercial applications is provided.</p>
               </div>
             </article>
           </section>
@@ -386,19 +392,19 @@
           <section class="boa-group">
             <h4 class="boa-session">Contributions engaging with the work and legacy of Gottfried Michael Koenig and James Tenney</h4>
             <article class="boa-item" id="paper-26">
-              <!-- PDF 64 -->
-              <h5 class="boa-title">The Process of Constructing Postcard from Sertões within a Csound Environment</h5>
+              <!-- camera-ready 64 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-26.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">The Process of Constructing Postcard from Sertões within a Csound Environment</a></h5>
               <p class="boa-authors">Catarina Rossi, Bruno Gazoni</p>
               <div class="boa-abstract">
-                <p>This paper describes the creative and technical process of the performance Postcard from Sertões. The work details the transposition of Almeida Prado's Sertões (1978) for solo viola [1] into the interactive electroacoustic domain, inspired by the compositional economy of James Tenney's Postal Pieces (1971) [2]. The research was developed within an Interpretive Experimentation Laboratory, which consisted of distilling Prado's transtonal system into four essential sound blocks, interpreted as "clangs", primary perceptual units based on Tenney's theory. The performance establishes a bridge between written tradition and orality by distributing musical materials between the Brazilian rabeca and the viola. The implementation, done via Csound and Cabbage, involves a real-time capture and Digital Signal Processing (DSP) system, operated by a postcard-inspired visual interface. In this setup, a second musician manipulates the audio input through four looper tracks, one for each clang, enhanced by effects applied to the repetitions to reshape their identities. The laboratory validated the interaction protocol between the instrumentalist and the software operator through remote testing and in-person rehearsals. The analysis concludes that technological mediation promotes a transformation of the work, resulting in a new hybrid composition that functions as a "virtual postcard," reactivating the symbolic resonances of the sertão through a phenomenological and immersive listening zone.</p>
+                <p>This paper describes the creative and technical process of the performance Postcard from Sertões. The work details the transposition of Almeida Prado’s Sertões (1978) for solo viola [1] into the interactive electroacoustic domain, inspired by the compositional economy of James Tenney’s Postal Pieces (1971) [2]. The research was developed within an Interpretive Experimentation Laboratory, which consisted of distilling Prado’s “transtonal system” into four essential sound blocks, interpreted as “clangs”, primary perceptual units based on Tenney’s theory. The performance establishes a bridge between written tradition and orality by distributing musical materials between two distinct performers. An acoustic interpreter plays the Brazilian rabeca and the viola, while an algorithm interpreter manipulates the audio input in real-time. The implementation, done via Csound and Cabbage, involves a digital signal processing (DSP) system operated by a postcard-inspired visual interface. Through four looper tracks enhanced by effects, the algorithm interpreter reshapes the clangs’ identities. The laboratory explored and refined the interaction protocol between the musicians through remote testing and in-person rehearsals. The artistic practice suggests that technological mediation promotes a transformation of the work, resulting in a new hybrid composition that functions as a “virtual postcard”, reactivating the symbolic resonances of the sertão through a phenomenological and immersive listening zone.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-27">
-              <!-- PDF 100 -->
-              <h5 class="boa-title">Somatic Continuum Paper</h5>
+              <!-- camera-ready 100 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-27.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Somatic Continuum: Building</a></h5>
               <p class="boa-authors">Tyler Kaufman</p>
               <div class="boa-abstract">
-                <p>Somatic Continuum is an interactive installation in which a visitor's face, hands, heartbeat, and presence become the instrument. There are no buttons and nothing to hold. A camera reads the face through MediaPipe FaceMesh, a hand tracker reads the hands, and a worn heart monitor reads the pulse. All of it drives a live Csound orchestra of more than twenty instruments over Open Sound Control. The instruments are spread across nine worlds, and each world puts a different instrument on each hand. A shared D minor field keeps every combination in tune. The visitor's heartbeat pulses the image and sets the timing of the arpeggios, so image and sound stay in time with the visitor's pulse. Each person who enters brings a new sonic world into being. Nothing is recorded in advance. The music is generated live by rules as the body shapes it. Koenig and Tenney composed by setting rules and letting them generate the music; Somatic Continuum does the same, except the rules run in real time and the body sets them in motion. The work gives Csound a new kind of interface, one played with the body and run live from a web layer, that lets an untrained visitor compose by moving.</p>
+                <p>Somatic Continuum is an interactive installation in which a visitor’s face, hands, heartbeat, and presence become the instrument. There are no buttons and nothing to hold. A camera reads the face through MediaPipe FaceMesh, a hand tracker reads the hands and the movement of the arms, and a worn heart monitor reads the pulse. All of it drives a live Csound orchestra of more than twenty instruments over Open Sound Control. The instruments are spread across nine worlds, and each world puts a different instrument on each hand. A shared key keeps every combination in tune. The visitor’s heartbeat pulses the image and sets the timing of the arpeggios, so image and sound move with the body. Each person who steps in and connects their heartbeat opens a new sonic world. Nothing is recorded in advance. The music is generated live by rules that the body shapes as it moves. Koenig and Tenney composed by setting rules and letting them generate the music; Somatic Continuum does the same, except the rules run in real time and the body sets them in motion. This installation gives Csound a new kind of interface, one played with the body, that lets an untrained visitor compose.</p>
               </div>
             </article>
           </section>
@@ -406,29 +412,29 @@
           <section class="boa-group">
             <h4 class="boa-session">Integration of Csound into web-based applications</h4>
             <article class="boa-item" id="paper-28">
-              <!-- PDF 19 -->
-              <h5 class="boa-title">pch2csd: From Command-Line Converter to Web-Based Modular Synthesis Environment</h5>
+              <!-- camera-ready 19 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-28.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">pch2csd: From Command-Line Converter to Web-Based Modular Synthesis Environment</a></h5>
               <p class="boa-authors">Gleb Rogozinski</p>
               <div class="boa-abstract">
                 <p>The pch2csd project, initiated in 2015, preserves the sonic heritage of the Clavia Nord Modular G2 synthesizer by converting its patches into Csound code. This paper presents the evolution of pch2csd into a web-based modular synthesis environment that combines the proven Python conversion engine with a real-time visual patching interface. We detail the system architecture, the reuse of the existing codebase through a Flask API, and the design decisions enabling seamless interaction between the visual patch editor and the Csound audio engine. The result is a platform that not only preserves the Nord Modular heritage but extends it into browser-based sound design, allowing users to load, visually edit, and hear patches directly in a web browser without proprietary software.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-29">
-              <!-- PDF 41 -->
-              <h5 class="boa-title">Evoking Harmony via Convolution</h5>
+              <!-- camera-ready 41 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-29.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Evoking Harmony via Convolution</a></h5>
               <p class="boa-authors">Michael Gogins</p>
               <div class="boa-abstract">
-                <p>I demonstrate how to impart, or evoke, the tonality of a chord from a source sound while, at the same time, minimizing artifacts and creating an interesting effect. Conceptually, the effect consists of convolving the source signal with the pitch-classes of the chord. I develop alternative implementations of this effect in Csound, analyze the characteristics of each implementation, and demonstrate some musical uses.</p>
+                <p>I show how to evoke the pitch-class content of a chord from an arbitrary source by convolving it with a short impulse response whose grains lie on those pitch-classes in every octave. A Csound implementation (chord convolver) builds one joint IR with frequency-dependent grain length, equal-energy normalization across octaves, inverse A-weighting, a dry Dirac, and a single ftconv. I contrast the effect with a linear comb and a generic constant-Q bank, and demonstrate it on a twilight field recording alongside Château de Lagarde.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-30">
-              <!-- PDF 90 -->
-              <h5 class="boa-title">CsoundUnity 4.0: Toward a Csound-Based Interactive Audio Platform for Unity</h5>
+              <!-- camera-ready 90 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-30.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">CsoundUnity 4.0: Toward a Csound-Based Interactive Audio Platform for Unity</a></h5>
               <p class="boa-authors">Giovanni Bedetti</p>
               <div class="boa-abstract">
                 <p>CsoundUnity is an open-source Unity package embedding the Csound audio engine, exposing its synthesis and signal-processing capabilities through a MonoBehaviour component and its custom Inspector. This paper presents version 4.0’s changes, marking a shift from a channel-driven wrapper toward an integrated, interactive audio environment.</p>
                 <p>Version 4.0 upgrades the embedded engine to Csound 7 (beta) across all platforms (macOS, Windows, Android, iOS, visionOS, WebGL) and adds new functionality in several areas. Native low-latency input backends (CoreAudio, WASAPI, AAudio, RemoteIO) bypass Unity’s buffered Microphone API through a native callback it does not provide; the AAudio backend reports approximately 4 ms of input latency on a Pixel 4a. An audio-routing layer lets CsoundUnity instances feed one another’s input, with cycle detection and an interactive node-graph editor; two new AudioPath options, IAudioGenerator and RootOutput (Unity 6.3+), join the existing OnAudioFilterRead callback – the former feeds an AudioSource directly, the latter writes straight to Unity’s main output, bypassing both AudioSource and mixer. Timeline integration adds channel-automation clips and eight score-generation clip modes, spanning hand-authored Score lines, an arpeggiator and chord generator, two step-sequencer variants, and generative Euclidean, stochastic, and swarm-based event generation.</p>
-                <p>Together with a UI widget system auto-generating a playable interface from a Csound document’s Cabbage GUI layout, cross-platform MIDI input, and a new vector-morphing layer built on the existing preset system, these additions move CsoundUnity toward an integrated, multiplatform environment for performing Csound instruments inside Unity – the same project is portable across desktop, mobile, and web. We close with directions for future work, including native audio output.</p>
+                <p>Together with a UI widget system auto-generating a playable interface from a Csound document’s Cabbage GUI layout, cross-platform MIDI input, and a new vector-morphing layer built on the existing preset system, these additions move CsoundUnity toward an integrated, multi-platform environment for performing Csound instruments inside Unity – the same project is portable across desktop, mobile, and web. We close with directions for future work, including native audio output.</p>
               </div>
             </article>
           </section>
@@ -436,19 +442,19 @@
           <section class="boa-group">
             <h4 class="boa-session">Live coding utilizing Csound</h4>
             <article class="boa-item" id="paper-31">
-              <!-- PDF 94 -->
-              <h5 class="boa-title">Idyl: A Reactive Functional Language for Time, with Csound as a First-Class Backend</h5>
+              <!-- camera-ready 94 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-31.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Idyl: A Reactive Functional Language for Time, with Csound as a First-Class Backend</a></h5>
               <p class="boa-authors">Johann Philippe</p>
               <div class="boa-abstract">
                 <p>Idýl is a functional, reactive programming language designed to describe and program time. Inspired by Antescofo and by Faust’s principle that “everything is a stream”, it treats time as a first-class value and change as the object of computation, rather than as a side effect of a general-purpose runtime. Definitions are stateless by default; state lives explicitly inside temporal blocks driven by a high-accuracy, drift-free scheduler. The language is generalist by intent: composition, performance, live-coding, and the control of arbitrary devices. It reaches the outside world through modules, C++ extensions that expose external APIs to Idýl code. Its reference module targets Csound: the scheduler drives one or more independent Csound instances, sequencing i-events, writing control channels, and polling channels back into the reactive graph. We present the language, its temporal semantics, the Csound bridge, and the engine that executes it.</p>
               </div>
             </article>
             <article class="boa-item" id="paper-32">
-              <!-- PDF 97 -->
-              <h5 class="boa-title">Cordelia has wisdom: reshaping a live coding method</h5>
+              <!-- camera-ready 97 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-32.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">Cordelia has wisdom: reshaping a live coding method</a></h5>
               <p class="boa-authors">Jacopo Greco d'Alceo</p>
               <div class="boa-abstract">
-                <p>This paper reports on the reconstruction of Cordelia, a domain-specific language for performance (live coding), composition and notation in Csound. Where the original implementation relied on hand-written, string-based mini-parsers to interpret its compositional syntax, the rewritten system is built on a formal Lark grammar processed by an Earley parser with a dynamic lexer and prioritised token classes, supporting LilyPond-style pitch notation alongside Cordelia’s own rhythmic and instrumental syntax. A seven-stage compiler pipeline replaces the previous single-pass conversion from text to Csound code, with a Deduce stage querying outward into a plugin-based corpus. The paper situates these changes within Cordelia’s founding principle of resource efficiency and argues that formalising the grammar has not constrained the language’s character but clarified it, making explicit a structure that was previously implicit and fragile.</p>
+                <p>This paper reports on the reconstruction of Cordelia, a domain-specific language for performance (live coding), composition and notation based on Csound. Where the original implementation relied on hand-written, string-based mini-parsers to interpret its compositional syntax and translate into Csound langauge, the rewritten system is built on a formal Lark grammar processed by an Earley parser with a dynamic lexer and prioritised token classes, supporting LilyPond-style pitch notation alongside Cordelia’s own rhythmic and instrumental syntax. A seven-stage compiler pipeline replaces the previous single-pass conversion from text to Csound code, with a stage querying outward into a plugin-based corpus. The paper situates these changes within Cordelia’s founding principle of resource efficiency and argues that formalising the grammar has not constrained the language’s character but clarified it, making explicit a structure that was previously implicit.</p>
               </div>
             </article>
           </section>
@@ -456,11 +462,11 @@
           <section class="boa-group">
             <h4 class="boa-session">Real-time implementation of Csound</h4>
             <article class="boa-item" id="paper-33">
-              <!-- PDF 76 -->
-              <h5 class="boa-title">A Csound-Based Programmable Sound Engine for Machine-Listening-Driven Real-Time Electronic Music</h5>
-              <p class="boa-authors">Shi Liwei, Bai CHEN</p>
+              <!-- camera-ready 76 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-33.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">A Csound-Based Programmable Sound Engine for Machine-Listening-Driven Real-Time Electronic Music</a></h5>
+              <p class="boa-authors">Liwei Shi, Chen Bai</p>
               <div class="boa-abstract">
-                <p>This paper presents a Csound-based programmable sound engine for machine-listening-driven real-time electronic music. The system combines Max/MSP, FluCoMa, an MLP regression model, and Csound in a layered architecture: Max/MSP manages live audio input and OSC/UDP communication, FluCoMa extracts audio features, the MLP maps these features to control parameters, and Csound performs real-time DSP processing according to the received data. In the current prototype, live input sound is routed to both Max/MSP and Csound, allowing machine-listening results to control delay processing, spectral transformation, random modulation, and spatial diffusion in real time. The prototype demonstrates the feasibility of using Csound as a programmable sound engine for connecting sound analysis, neural-network mapping, and real-time electronic sound processing.</p>
+                <p>This paper presents a programmable Csound sound engine for machine-listening-driven real-time audio processing in live electronics. The system integrates Max/MSP, FluCoMa, a multilayer perceptron (MLP) regression model, and Csound in a layered architecture for audio analysis, parameter mapping, and sound processing. Max/MSP handles audio input, control scheduling, and OSC/UDP communication, while FluCoMa extracts acoustic features. The MLP maps these features to two continuous performance-state coordinates, which a subsequent mapping layer converts into eight digital signal processing (DSP) control values. Training takes place before performance. Network parameters and feature-standardization parameters are saved in separate JSON files and loaded for inference during performance. Csound applies delay, spectral processing, nonlinear transformation, random modulation, and spatial diffusion to the input audio according to the received control values. The paper describes data transfer, parameter mapping, and smoothing across the layers and examines the processing workflow through model-driven offline replay of a complete recording. The resulting design provides a programmable connection between machine listening and real-time electronic sound processing.</p>
               </div>
             </article>
           </section>
@@ -468,11 +474,11 @@
           <section class="boa-group">
             <h4 class="boa-session">Algorithmic composition with Csound: Rendering symbolic musical timelines into heterogeneous output</h4>
             <article class="boa-item" id="paper-34">
-              <!-- PDF 87 -->
-              <h5 class="boa-title">One Timeline, Many Renderings: A Wolfram Language Paclet for heterogeneous musical output</h5>
+              <!-- camera-ready 87 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-34.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">One Timeline, Many Renderings: A Wolfram Language Paclet for heterogeneous musical output</a></h5>
               <p class="boa-authors">Francesco Vitucci, Michele Lorusso, Francesco Scagliola</p>
               <div class="boa-abstract">
-                <p>Algorithmic composition often does not end in a single medium: the same musical plan may need to become a Csound score for synthesis, engraved notation for performers, a real-time control stream, and a click track for rehearsal. Authored or repaired separately, these timelines drift apart. We present Temporal System, a Wolfram Language paclet that treats heterogeneous output as a projection problem: one immutable store of typed musical entities, placed on a rational beat timeline, is compiled by per-backend renderers into Csound (electroacoustic and synthesis), MusicXML (symbolic score, in beta against MusicXML 4.0), and OSC (a pre-rendered control stream for real-time dispatch) artifacts that stay synchronous because they share one store. We describe the design decisions, the anatomy (temporal, semantic, and rendering layers; fourteen modules), and the renderers. Particular attention goes to Csound, which fixes the rendering idiom: compiled tempo maps yield onset and duration seconds only at render time, session tuning yields p4 frequencies, curve entities compile to k-rate control signals bound to score p-fields, and orchestras remain ordinary .orc files addressed by stable named instruments—the score–orchestra separation Csound inherits from the music n family. A click-track backend derives rehearsal audio from the same meter and tempo and reuses the Csound serializer—how cheaply a further projection follows once the temporal core is shared.</p>
+                <p>One algorithmic composition may require a Csound score, engraved notation, real-time control, and a rehearsal click. Authored separately, their timelines drift. Temporal System is a Wolfram Language paclet that instead compiles one immutable store of typed entities on a rational beat timeline through backend-specific contracts. It emits Csound synthesis, beta MusicXML 4.0, OSC control, and click artifacts that remain synchronized because they share that store. Conversion to seconds, samples, or hertz occurs only at render time. Csound notes use stable named instruments in external .orc files; curves become k-rate signals declared against score p-fields. The click backend derives rehearsal audio from the same meter and tempo and reuses the Csound serializer. We describe the temporal, semantic, and rendering-contract layers, their practical trade-offs, and the limits of this proprietary authoring environment within an otherwise open-source ecosystem. The archived supplement exposes the reported outputs pending paclet release.</p>
               </div>
             </article>
           </section>
@@ -480,11 +486,11 @@
           <section class="boa-group">
             <h4 class="boa-session">Real-time implementation of Csound: Auditory entrainment and biofeedback applications</h4>
             <article class="boa-item" id="paper-35">
-              <!-- PDF 74 -->
-              <h5 class="boa-title">The Verified Core and the New Frontend: “Software-as-a-Medical-Device” (SaMD) Methodology Applied to Csound Frontend Development</h5>
+              <!-- camera-ready 74 -->
+              <h5 class="boa-title"><a class="boa-pdf" href="papers/icsc2026-paper-35.pdf" target="_blank" rel="noopener noreferrer" title="Open the paper (PDF) in a new tab">The Verified Core and the New Frontend: “Software-as-a-Medical-Device” (SaMD) Methodology Applied to Csound Frontend Development</a></h5>
               <p class="boa-authors">David Akbari</p>
               <div class="boa-abstract">
-                <p>In 2024 the U.S. Food and Drug Administration authorized the first over-the-counter hearing-aid software, a feature that turns a pair of consumer earbuds into a regulated medical device. This marks a quiet-but-real landmark: an audio signal-processing algorithm can now be treated as software whose behavior must be verified and validated, not merely tuned by ear. Csound already embodies the architecture this new paradigm demands. Since Csound 5, the system has been organized as libcsound — a dependency-light audio core with a stable public interface — over which arbitrary host applications supply the user interface. In this paper, we describe the translation of Csound’s “plumbing” into openFrameworks, in which the audio callback pumps ksmps-sized blocks through the engine while a graphical layer drives control channels. To illustrate this, three specific examples are presented — a reverbsc-based “reverberator,” an ADRess stereo source “separator,” and a two-oscillator matrix “synthesizer” using vco2 — as cores that can be exercised by offline render, golden-file comparison, and algorithm-invariant checks before any interface is attached. This paper maps the vocabulary of verification and validation onto everyday Csound practice and notes that the reverbsc opcode’s own history — a reference implementation reused across many hosts — demonstrates the principle in practice. Finally, this paper argues that because the core is small, portable and testable, the Csound orchestra is a uniquely powerful pedagogical object: a compact specification of a signal process that learners can hold fixed while they iterate freely on the frontend, exploring novel modes of human interaction without destabilizing the verified algorithm beneath. Two takeaways follow: verification-and-validation discipline makes Csound cores trustworthy and reusable, and the orchestra is a durable teaching kernel for the design of new interfaces.</p>
+                <p>In September 2024 the U.S. Food and Drug Administration authorized the first over-the-counter hearing-aid medical device software, turning a pair of consumer earbuds into a regulated medical device and making an audio signal-processing algorithm into a treatment whose behavior must be verified against a known output, not simply tuned by ear. This paper’s focus is to build the artifact the paradigm asks for: a dependency-light hearing-aid prescription engine written entirely as a Csound orchestra. From one editable row of audiogram thresholds it computes, at initialization time, a per-band NAL-R/RP insertion-gain target and a wide-dynamic-range compression (WDRC) law and applies them in an eight-band compressor — the whole device readable in a single sitting and portable, through libcsound, from a desktop rig to on-ear silicon. We verify it at two levels. On the bench, offline Csound renders establish that the core is deterministic to the sample (a bit-exact golden file), that its initialization-time prescription reproduces the published NAL-R formula exactly, and that its input/output behavior follows the prescribed compression law up to a fixed maximum-output ceiling. In situ, we couple the same orchestra to a manikin through an ordinary pair of AirPods — an interchangeable stand-in for any suitable transducer a finished product would use — and measure the delivered sound with a VeriFit 2 real-ear system against NAL-NL2 targets for a standard N3 hearing loss [25]. At a 65 dB SPL conversational input the aided response matches target with a root-mean-square deviation of 4.2 dB, excellent through the core speech region; the same measurement shows a high-frequency over-shoot consistent with a limitation the core’s own documentation predicted in advance. We frame the companion-interface and distributed co-processing ideas as hypotheses rather than results, recast azimuth-based source separation as a candidate alternative to directional-microphone beamforming for speech-in-noise, and place the whole exercise honestly inside the regulatory apparatus of IEC 62304, ISO 14971, and ISO 13485, with the road to clinical validation named but not yet walked.</p>
               </div>
             </article>
           </section>
@@ -515,12 +521,13 @@
               </div>
             </article>
             <article class="boa-item" id="ws-02">
-              <!-- PDF 96 -->
+              <!-- camera-ready 96 -->
               <span class="boa-label">Installation</span>
               <h5 class="boa-title">Somatic Continuum</h5>
               <p class="boa-authors">Tyler Kaufman</p>
               <div class="boa-abstract">
-                <p>Somatic Continuum is an interactive audiovisual installation in which a visitor's face, hands, heartbeat, and presence become the instrument and art piece itself. It has no buttons and no controllers. A camera reads the face, a hand tracker reads the hands/arms, and a heart monitor reads the pulse. All of it plays a live Csound orchestra of more than twenty instruments, spread across many sonic worlds and held together in a shared key so that it can always sound harmonically beautiful. Each person who interacts with the piece brings a new sonic world into being, and everything they see and hear unfolds in time with their own heartbeat. They can record their own voice and layer it in, and this interactive installation allows the audience to make their own proper art that could not exist without them. Somatic Continuum also allows users to take images of themselves inside the piece so that users can take with them their own proper artwork they created. Nothing is recorded in advance, and nothing is fixed. The sound is a family of processes that evolve by their own rules as the body shapes them. In placing generative and embodied synthesis at its center, the work engages the algorithmic and different sonic processes created by Gottfried Michael Koenig and James Tenney.</p>
+                <!-- NOTA: il PDF non ha una sezione "Abstract": il testo qui sotto è la "Complete description of the work" del PDF -->
+                <p>Somatic Continuum is an interactive audiovisual installation in which a visitor’s face, hands, heartbeat, and presence become the instrument and art piece itself. It has no buttons and no controllers. A camera reads the face, a hand tracker reads the hands/arms, and a heart monitor reads the pulse. All of it plays a live Csound orchestra of more than twenty instruments, spread across many sonic worlds and held together in a shared key so that it can always sound harmonically connected. Nothing can sound wrong, but nothing happens without engagement: the more the visitor engages, the richer the soundscape becomes. Each person who interacts with the piece brings a new sonic world into being, and everything they see and hear unfolds in time with their own heartbeat. They can record their own voice and layer it in, and this interactive installation allows the audience to make their own proper art that could not exist without them. Somatic Continuum also allows users to take images, videos and audio recordings of themselves inside the piece so that users can take with them their own proper artwork they created. For artists and designers that want to custom make their own sounds and connect it to Somatic Continuum, this installation sends MIDI data so that whatever instrument or sound they want to use for their personal expression is possible, and that MIDI data allows more complex iterations of sonic exploration within Csound and with other audio programs. Nothing is recorded in advance, and nothing is fixed. In placing generative and embodied Csound synthesis at its center, the work engages the algorithmic and different sonic processes created by Gottfried Michael Koenig and James Tenney.</p>
               </div>
             </article>
           </section>
@@ -534,7 +541,7 @@
 
           <section class="boa-group">
             <article class="boa-item" id="ws-03">
-              <!-- PDF 77 -->
+              <!-- camera-ready 77 -->
               <span class="boa-label">Workshop 2</span>
               <h5 class="boa-title">Phonehenge (2026) for Satellite Gamelan</h5>
               <p class="boa-authors">Greg Schiemer, Thorin Kerr</p>
@@ -545,16 +552,6 @@
             <article class="boa-item" id="ws-04">
               <!-- nessun PDF -->
               <span class="boa-label">Workshop 3</span>
-              <h5 class="boa-title">Cordelia, live coding in Csound</h5>
-              <p class="boa-authors">Jacopo Greco d'Alceo</p>
-              <div class="boa-abstract">
-                <!-- NOTA: nessun PDF per questa voce: il testo qui sotto è la descrizione presa dal Program. Sostituire con l'abstract se disponibile -->
-                <p>A hands-on introduction to Cordelia, a language for live coding, composition, and notation with Csound. Participants explore its architecture and create their own instruments, effects, and functions using its plugin system.</p>
-              </div>
-            </article>
-            <article class="boa-item" id="ws-05">
-              <!-- nessun PDF -->
-              <span class="boa-label">Workshop 4</span>
               <h5 class="boa-title">Introducing Csound in the MetaVerse 2.0: A Workshop/Jam Session</h5>
               <p class="boa-authors">Richard Boulanger</p>
               <div class="boa-abstract">
@@ -562,13 +559,15 @@
                 <p>Participants use Meta Quest 3 headsets to interact with sound objects in a shared virtual environment powered by Csound and CsoundUnity. Sounds are manipulated through gestures within a collaborative networked jam session.</p>
               </div>
             </article>
-            <article class="boa-item" id="ws-06">
-              <!-- PDF 65 -->
-              <span class="boa-label">Workshop 4</span>
+            <article class="boa-item" id="ws-05">
+              <!-- nessun PDF -->
+              <span class="boa-label">Workshop 3</span>
               <h5 class="boa-title">CSOUNDMETA DREAMS OF SICILY (2026)</h5>
               <p class="boa-authors">Shiying (Amy) Chen</p>
               <div class="boa-abstract">
-                <p>CsoundMeta Dreams of Sicily, dedicated to the memory of John ffitch, is a 9-minute, 39-second live performance that pulls ffitch's own Csound compositions and instruments out of the classroom and casts them under an imagined Sicilian sky. Three performers wear Meta Quest 3 headsets on stage, sharing one networked CsoundUnity world with a live acoustic percussionist and, network permitting, two remote performers joining from Ohio and London. A center screen shows the host's own view of the shared visual and sound world, so the audience can see what the ensemble is inhabiting. The percussionist plays kitchen percussion (pans, bottles, and other found objects) rather than a drum kit, captured live through a low-latency microphone object and spatialized in real time alongside the ensemble's other Csound Sound Objects: Orbs, Wanderers, Classics, samplers, and live signal-processing objects, along with a new set of Effortless AI genre-generated instruments. The AI-generated skyboxes, built from Etna's volcanic vortex rings, the Fata Morgana over the Strait of Messina, the island's Doric, Arab-Norman, and Baroque architecture, and its oldest legends (Colapesce, Scylla and Charybdis, Persephone, Polyphemus and Acis), respond to natural-language prompts inside the headset itself and can be remixed and regenerated on request, in styles ranging from photorealistic and cinematic to watercolor and cartoon. The piece runs on a timeline loose enough that which objects appear, and when, is never quite the same twice.</p>
+                <!-- NOTA: nessun PDF per questa voce: il testo qui sotto è la descrizione presa dal Program. Sostituire con l'abstract se disponibile -->
+                <!-- NOTA: la sottomissione originale n. 65 (CsoundMeta Dreams of Sicily) ha un abstract più lungo e diverso (performance per tre musicisti e un percussionista), ma nel camera-ready il n. 65 è un altro lavoro (Floating on Their C of Sound): il testo originale è conservato nella nota del progetto -->
+                <p>The workshop will culminate in the world premiere of a networked solo whose shared virtual environment draws on Sicilian landscapes, architecture, and mythology through AI-generated visual worlds. As the session concludes, participants will be invited to join in and play along.</p>
               </div>
             </article>
           </section>
@@ -581,25 +580,26 @@
           <h3 class="boa-day">22 October</h3>
 
           <section class="boa-group">
-            <article class="boa-item" id="ws-07">
-              <!-- nessun PDF -->
-              <span class="boa-label">Workshop 5</span>
+            <article class="boa-item" id="ws-06">
+              <!-- camera-ready 18 -->
+              <span class="boa-label">Workshop 4</span>
               <h5 class="boa-title">Collective music making: James Tenney – Harmonium #7</h5>
               <p class="boa-authors">Tarmo Johannes</p>
               <div class="boa-abstract">
-                <!-- NOTA: nessun PDF per questa voce: il testo qui sotto è la descrizione presa dal Program. Sostituire con l'abstract se disponibile -->
-                <p>A collaborative workshop centered on performing James Tenney’s Harmonium #7 using Csound instruments. Participants explore just intonation and remote control via UDP/OSC, culminating in a collective performance of the piece.</p>
+                <!-- NOTA: il camera-ready n. 18 è un unico file per questa voce e per "James Tenney - Saxony": l'abstract è stato diviso tra le due voci (la prima frase, comune, è ripetuta in entrambe) -->
+                <p>The workshop introduces the spectral music of James Tenney, featuring a performance of Saxony (1978) alongside a collective performance workshop of Harmonium #7.</p>
+                <p>Harmonium #7 is built on the harmonic series and sustained, justly-tuned tones. Participants are invited to design and bring their own Csound instrument(s) capable of sustaining tones with precise pitch control (derived from harmonic ratios), volume adjustment, and, where possible, expressive control over timbre. Two modes of participation are offered: a physical setup, where participants connect their laptops or audio interfaces to a shared mixer and PA system, and a network-based setup, where instruments are compiled and controlled remotely via UDP/OSC messages sent to a master computer. The latter also serves as a live demonstration of Csound 7’s new UDP server functionality for OSC-based instrument control.</p>
               </div>
             </article>
-            <article class="boa-item" id="ws-08">
-              <!-- PDF 18 -->
-              <span class="boa-label">Workshop 5</span>
+            <article class="boa-item" id="ws-07">
+              <!-- camera-ready 18 -->
+              <span class="boa-label">Workshop 4</span>
               <h5 class="boa-title">James Tenney - Saxony</h5>
               <p class="boa-authors">Tarmo Johannes</p>
               <div class="boa-abstract">
-                <p>Saxony (1978) by James Tenney is a fine example of process-based electronic music. Originally realized using two tape recorders in a feedback loop — one recording and one playing back with about 12 second delay time — the piece generates a continuously evolving sonic texture through the self-reinforcing accumulation of sound. This performance presents a new realization of Saxony using Csound and a wind controller instead of saxophone.</p>
-                <p>The Csound implementation centers on wave terrain synthesis as the primary means of sound generation. The feedback loop — the structural and conceptual core of Tenney's original design — is recreated digitally with Csound providing precise control over delay time, feedback and other parameters. Next to that, this realization can ensure that the required 32 overtones of the low E♭ are sounding at the correct pitch.</p>
-                <p>The piece is performed live by Tarmo Johannes using the Sylphyo, an electronic wind controller, which provides expressive, breath-driven control over the synthesis parameters.</p>
+                <!-- NOTA: il camera-ready n. 18 è un unico file per questa voce e per "Collective music making: James Tenney – Harmonium #7": l'abstract è stato diviso tra le due voci (la prima frase, comune, è ripetuta in entrambe) -->
+                <p>The workshop introduces the spectral music of James Tenney, featuring a performance of Saxony (1978) alongside a collective performance workshop of Harmonium #7.</p>
+                <p>Saxony by James Tenney is a fine example of process-based electronic music, originally realized using two tape recorders in a feedback loop. This performance presents a new realization of Saxony created in Csound, utilizing an electronic wind controller rather than a saxophone. The Csound implementation centers on wave terrain synthesis as the primary method of sound generation. The feedback loop is recreated digitally, providing precise control over delay time, feedback, and other parameters. In addition, this realization ensures that the 32 required overtones of the low E♭ sound at their exact pitches. The piece is performed live by Tarmo Johannes using the Sylphyo, an electronic wind controller that provides expressive, breath-driven control over synthesis parameters.</p>
               </div>
             </article>
           </section>
@@ -620,89 +620,83 @@
 
           <section class="boa-group">
             <article class="boa-item" id="concert-piece-01">
-              <!-- nessun PDF -->
+              <!-- camera-ready 65 -->
               <h5 class="boa-title">Floating on Their C of Sound: Remembering Barry and John</h5>
               <p class="boa-sub">(in memory of Barry Vercoe, 1937–2025, and John ffitch, 1945–2026)</p>
               <p class="boa-authors">Richard Boulanger and Ningxin Zhang</p>
               <p class="boa-meta">Short Film · 6'00"</p>
               <div class="boa-abstract">
-                <!-- DA COMPILARE: abstract mancante (nessun PDF per questo brano) -->
+                <p>Floating on Their C of Sound: Remembering Barry &amp; John is a solo Csound/XR performance, six minutes long, written in memory of Barry Vercoe, who died on 15 June 2025 in Tauranga, New Zealand, and John ffitch, who died in June 2026 in Bath, England. Alone on stage in a Meta Quest 3 headset, Richard Boulanger floats through a single CsoundMeta world built from what the two men actually left behind: their own voices, drawn from archival interviews and talks, their own music, and images from their lives and their work, the MIT Experimental Music Studio, Csound’s source code, a Bath office, all surfacing and receding inside the world the performer alone inhabits. What the headset shows the performer is projected for the audience to see as they listen, so the audience watches the performer remember. Granulated fragments of Vercoe’s 1976 Synapse for Viola and Computer and of the networked duet Boulanger and ffitch wrote and performed together drift like driftwood on an ocean that is also the four decades of Csound the two of them, in their very different ways, kept afloat. The piece is the performer’s own way of floating with both men once more before passing them, and the gift they gave him and everyone who works in Csound, on to whoever performs or hears it next. There is no fixed script: which voice, which fragment of music, which image rises to the surface, and when, is left to change from one performance to the next.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-02">
-              <!-- PDF 69 -->
+              <!-- camera-ready 69 -->
               <h5 class="boa-title">Bella Tenor</h5>
-              <p class="boa-authors">Alex Hofmann</p>
+              <p class="boa-authors">Alex Hofmann, Composer &amp; Saxophone</p>
               <p class="boa-meta">Mixed · 10'00"</p>
               <div class="boa-abstract">
-                <p>Bella Tenor (2018) is a work for tenor saxophone and embedded Csound live-electronics that uses algorithmically generated verbal instructions to guide improvisation. A Csound patch combines parameters like dynamics, duration, sound content, register, and tempo to shape the performance without fixed notation. All electronics are built into the saxophone, including microphone, speaker, and Bela board. The sound is processed in real time using the COSMO library and played back through the saxophone’s bell, blending acoustic and electronic sound in a portable setup.</p>
+                <p>Bella Tenor (2018) is a work for tenor saxophone and embedded Csound live-electronics that uses algorithmically organised verbal instructions to guide an improvisation. A Csound patch thereby plays the instructions for parameters like dynamics, duration, sound content, register, and tempo, to shape the performance without fixed notation. All electronics are built as a portable setup into the saxophone, including microphone, loudspeaker, and a Bela board. The sound is processed in real time using the COSMO library and played back through the loudspeaker in the saxophone’s bell, blending acoustic and electronic sound.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-03">
-              <!-- PDF 46 -->
+              <!-- camera-ready 46 -->
               <h5 class="boa-title">Convergent Series</h5>
               <p class="boa-authors">Joel Hunt</p>
               <p class="boa-meta">Fixed · 5'45"</p>
               <div class="boa-abstract">
-                <p>Convergent Series is a fixed media quadraphonic electroacoustic composition conceived as a tribute to Gottfried Michael Koenig and James Tenney. The work draws on two foundational currents in computer music: Koenig's serial parameter organization and Tenney's spectral and psychoacoustic explorations. The piece unfolds in four continuous sections— Emergence, Dialogue, Ascent, and Convergence—in which spectral drones, FM synthesis cells, Shepard-Risset tones, and rhythmic percussion layers coalesce from silence, engage in polyrhythmic counterpoint, and dissolve back into acoustic space. The title refers to the mathematical notion of a convergent series, in which successively smaller terms sum toward a finite whole—an analogue for two composers whose ideas, developed independently across decades, converge in the contemporary practice of algorithmic and spectral computer music. The harmonic language is derived from upper partials of the overtone series (partials 7, 9, 11, 13, and 15 of A0 = 27.5 Hz), yielding microtonal pitch material that exists outside equal temperament. FM synthesis employs irrational modulator-to-carrier ratios (φ, √2, √3, √5, π, e) to generate inharmonic, metallic timbres. Rhythmic organization in the central sections draws on additive metric patterns (2+3+2 / 3+2+3) that accelerate progressively across the duration, reaching a climactic density before dissolving. The quadraphonic space is treated as a compositional dimension, with independent azimuth rotation arcs for each layer and asymmetric front/rear reverb processing creating a sense of acoustic envelopment and spatial emergence.</p>
+                <p>Convergent Series is a fixed media quadraphonic electroacoustic composition conceived as a tribute to Gottfried Michael Koenig and James Tenney. The work draws on two foundational currents in computer music: Koenig’s serial parameter organization and Tenney’s spectral and psychoacoustic explorations. The piece unfolds in four continuous sections—Emergence, Dialogue, Ascent, and Convergence—in which spectral drones, FM synthesis cells, Shepard-Risset tones, and rhythmic percussion layers coalesce from silence, engage in polyrhythmic counterpoint, and dissolve back into acoustic space. The title refers to the mathematical notion of a convergent series, in which successively smaller terms sum toward a finite whole—an analogue for two composers whose ideas, developed independently across decades, converge in the contemporary practice of algorithmic and spectral computer music. The harmonic language is derived from upper partials of the overtone series (partials 7, 9, 11, 13, and 15 of A0 = 27.5 Hz), yielding microtonal pitch material that exists outside equal temperament. FM synthesis employs irrational modulator-to-carrier ratios (φ, √2, √3, √5, π, e) to generate inharmonic, metallic timbres. Rhythmic organization in the central sections draws on additive metric patterns (2+3+2 / 3+2+3) that accelerate progressively across the duration, reaching a climactic density before dissolving. The quadraphonic space is treated as a compositional dimension, with independent azimuth rotation arcs for each layer and asymmetric front/rear reverb processing creating a sense of acoustic envelopment and spatial emergence.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-04">
-              <!-- PDF 38 -->
+              <!-- camera-ready 38 -->
               <h5 class="boa-title">Midnight at the club</h5>
               <p class="boa-authors">Jean-Basile Sosa</p>
               <p class="boa-meta">Live Electronics · 12'00"</p>
               <div class="boa-abstract">
-                <!-- NOTA: il PDF non ha una sezione "Abstract": il testo qui sotto è il "Programme notes" (sezione 1 del PDF) -->
-                <p>Midnight at the Club is a new section of the live-electronics Fashionable Nightclub.</p>
-                <p>With this project, I present a fantastical interpretation of a musical phenomenon that emerged in the United States at the dawn of the 1980s: the rise of house and techno music in the iconic cities of Chicago and Detroit.</p>
+                <!-- NOTA: il PDF non ha una sezione "Abstract": il testo qui sotto è il "Programme notes" del PDF -->
+                <p>With this work, I present a fantastical interpretation of a musical phenomenon that emerged in the United States at the dawn of the 1980s: the rise of house and techno music in the iconic cities of Chicago and Detroit.</p>
                 <p>In a spirit that is both celebratory and solemn, this live performance invites the audience to dance without ever needing to move.</p>
-                <p>Drawing from the cultural roots of house and techno, the project also places great emphasis on the concept of aesthetic boundary-pushing. Fashionable Nightclub champions unclassifiable music, offering an open invitation to the fringes of alternative and unconventional electronic music: acousmatic, IDM, noise, ambient, and hyperpop.</p>
+                <p>Drawing from the cultural roots of house and techno, the project also places great emphasis on the concept of aesthetic boundary-pushing. Midnight at the club champions unclassifiable music, offering an open invitation to the fringes of alternative and unconventional electronic music: acousmatic, IDM, ambient and hyperpop.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-05">
-              <!-- PDF 14 -->
+              <!-- camera-ready 14 -->
               <h5 class="boa-title">Simple_test</h5>
               <p class="boa-authors">Enrico Francioni</p>
               <p class="boa-meta">Fixed · 10'00"</p>
               <div class="boa-abstract">
-                <p>Written to remember the figure of the great electronic musician and pianist Eugenio Giordani, Simple_test can be divided into "rooms" that house materials and gestures of various categories that return by typology in a cyclical way, each time varied in content. The materials include short quotes from at least six electroacoustic works by Giordani and other material, such as C-Pong.csd audio, musical performances, or human steps taken from a hypothetical library, real and unpublished, put together by the artist. The starting work was designed for 3D reproduction within an acoustic sphere, for an ambisonic listening of the 6th order.</p>
+                <p>Written in memory of the great musician and electronic pianist Eugenio Giordani, Simple_test is divided into “rooms” that host materials and gestures of various categories, which recur cyclically by typology, varying in content each time. The materials include brief quotes from at least six of Giordani’s electroacoustic works and other material, such as audio in C-Pong.csd format, musical performances, or human footsteps drawn from a hypothetical library, real and unpublished, created by the artist. The original work was conceived for 3D reproduction within a Sonosphere.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-06">
-              <!-- PDF 86 -->
+              <!-- camera-ready 86 -->
               <h5 class="boa-title">Luce Mattino</h5>
               <p class="boa-authors">Iain McCurdy</p>
               <p class="boa-meta">Multimedia · 7'15"</p>
               <div class="boa-abstract">
-                <p>Luce Matino’s sole sources are video and audio materials that were captured during a seven-minute walk through the northern Italian city of Cuneo on a July morning in 2025. Initially I didn’t respond enthusiastically to the materials; perhaps I was anticipating more overtly touristic results. But when I returned to them many months later, I began to be drawn to details in the light and shadow cast through the Venetian arcades, the sense of purpose in people beginning their day and the sense of location imbued by street architecture and graphics. The washy soundscape captured was similarly initially unyielding but as I listened closer, I found nuggets of interest in the subtly shifting acoustics as I moved in and out of the arcades as well as lurking features such as the clatter of coffee cups, energetic chatter, a passing sports car, a musical jingle played through a street PA system accompanied by a petrol generator and the screeching of the wheels on a delivery trolley. The subtle details in the video I was noticing could be brought to the fore by time-stretching so that the eye can explore the scene at leisure. Careful colour grading brought out the light and shadow. Audio events are not synced with their sources and in fact I wanted to reflect the disordered, overlapping and looping manner in which memory functions. A key technique applied to the audio was to reverberate it with itself and often using an approach in which the window of the reverberant impulse is moving along with the source to be reverberated. This approach was also manipulated so that some of the sound features described above – bells, screeches, bangs, speech fragments and melody – could function as musical motifs as they periodically recur, albeit in slightly transformed versions, each time.</p>
+                <p>Luce Matino’s sole sources are video and audio materials that were captured during a seven-minute walk through the northern Italian city of Cuneo on a July morning in 2025. Initially I didn’t respond enthusiastically to the materials; perhaps I was anticipating more overtly touristic results. But when I returned to them many months later, I began to be drawn to details in the light and shadow cast through the Venetian arcades, the sense of purpose in people beginning their day and the sense of location imbued by street architecture and graphics. The washy soundscape captured was similarly initially unyielding, but as I listened closer, I found nuggets of interest in the subtly shifting acoustics as I moved in and out of the arcades as well as lurking features such as the clatter of coffee cups, energetic chatter, a passing sports car, a musical jingle played through a street PA system accompanied by a petrol generator and the screeching of the wheels on a delivery trolley. The subtle details in the video I was noticing could be brought to the fore by time-stretching so that the eye can explore the scene at leisure. Careful colour grading brought out the light and shadow. Audio events are not synced with their sources and in fact I wanted to reflect the disordered, overlapping and looping manner in which memory functions. A key technique applied to the audio was to reverberate it with itself and often using an approach in which the window of the reverberant impulse is moving along with the source to be reverberated. This approach was also manipulated so that some of the sound features described above – bells, screeches, bangs, speech fragments and melody – could function as musical motifs as they periodically recur, albeit in slightly transformed versions, each time.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-07">
-              <!-- PDF 92 -->
+              <!-- camera-ready 92 -->
               <h5 class="boa-title">Nel supplizio il canto. Cecilia</h5>
-              <p class="boa-authors">Gianni Della Vittoria</p>
-              <p class="boa-meta">Classical Guitar and Live Electronics · 7'00"</p>
-              <p class="boa-sub">Guitar: Stephen Richard Figoni</p>
+              <p class="boa-authors"><span>Gianni Della Vittoria, Composer</span><span>Stephen Richard Figoni, Guitar</span></p>
+              <p class="boa-meta">for Classical Guitar and Live Electronics · 7'00"</p>
               <div class="boa-abstract">
                 <p>Dedicated to Saint Cecilia, this piece draws inspiration from Raphael’s The Ecstasy of Saint Cecilia, contrasting the destruction of worldly instruments with the divine vision of martyrdom. The work reworks the Gregorian antiphon Cantantibus organis across ito four continuous sections, utilizing positional rhythmic notation with a complex, Lachenmann-inspired graphic score. Central to the composition is the use of Csound, which serves as a vital engine for intricate electronic processing. By enabling bespoke spectral delays and specialized reverberation effects, Csound facilitates a deep integration between real-time synthesis and fixed media. This digital architecture complements the guitar’s extensive timbral palette, encompassing harmonics, bowing, percussive strikes, and innovative bottleneck techniques.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-08">
-              <!-- PDF 88 -->
+              <!-- camera-ready 88 -->
               <h5 class="boa-title">Paranoise</h5>
               <p class="boa-authors">Luís Antunes Pena</p>
               <p class="boa-meta">Live Electronics · 7'00"</p>
               <div class="boa-abstract">
-                <p>Paranoise is a performance for analog synthesizer and Csound live processing. Its core is an accumulative feedback system: sound from the synthesizer, processed in Csound, feeds an autonomous accumulation process that continuously transforms itself. The system is sensitive to multiple modes of interaction, with the performer acting as the main interference source. At an unpredictable threshold, accumulation tips into self-destruction — the system brings the piece to its end.</p>
-                <p>Noise in Paranoise is not an added material nor an acoustical characteristic but the constitutive condition of the system: the instabilities of the analog circuits are simultaneously the sound source and the perturbation that drives the accumulation process. What functions as signal at one point in the loop returns as interference at another.</p>
-                <p>The analog setup is built around Serge-type function generators whose roles — "oscillator", "envelope follower" — are assigned by patching rather than design. Three feedback loops operate at different levels: a local audio loop through a frequency shifter, a control loop in which the envelope follower, fed from the low-pass filter, modulates its own source, and a global loop returning the Csound output into the analog control path — three chains that amplify their own irregularities.</p>
-                <p>Apart from the accumulation process, Csound has several processing algorithms that are controlled during performance: Spectrum (a sine-wave extraction of the input signal), a string resonator, and a pitch shifter. None of these algorithms is passive: each changes its behaviour according to characteristics of the input signal.</p>
-                <p>The accumulation process privileges small grains of sound selected according to amplitude and "noisiness" criteria. They are stored side-by-side in a pre-defined buffer which continuously reorders them. When the buffer reaches 75% of its capacity, it may, at any time, start the self-destruction process. The final process searches the buffer for "pure" sounds — sounds that, by construction, are not there. Paranoise ends in this technological failure: the impossibility of separating noise from its other.</p>
+                <p>Paranoise is a performance for analog synthesizer and Csound live processing, built around an accumulative feedback system that continuously transforms itself. Noise is not added material here but the system’s constitutive condition: what functions as signal at one point in the loop returns as interference at another, with the performer acting as the main interference source. Serge-type function generators feed three nested feedback loops that amplify their own irregularities. A parallel accumulation process gathers small grains of sound by amplitude and “noisiness”, reordering them in a buffer. Once the buffer fills it may at any moment begin to self-destruct — searching for “pure” sounds that, by construction, are not there. Paranoise ends in this failure: the impossibility of separating noise from its other.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-09">
-              <!-- PDF 85 -->
+              <!-- camera-ready 85 -->
               <h5 class="boa-title">Fleeting experience</h5>
               <p class="boa-authors">Clemens von Reusner</p>
               <p class="boa-meta">Fixed · 8'00"</p>
@@ -722,25 +716,25 @@
 
           <section class="boa-group">
             <article class="boa-item" id="concert-piece-10">
-              <!-- PDF 60 -->
+              <!-- camera-ready 60 -->
               <h5 class="boa-title">Respiri, silenzio: soglie</h5>
-              <p class="boa-authors"><span>Nicoletta Andreuccetti</span><span>Lorenzo Ballerini, Live Electronics</span><span>Anthony di Furia, Sound Design</span></p>
+              <p class="boa-authors"><span>Nicoletta Andreuccetti</span><span>Lorenzo Ballerini, Live Electronics</span><span>Leonardo Cassarà, Bass Clarinet</span><span>Simone Veccia, Musical Supervisor</span><span>Anthony di Furia, Sound Design</span></p>
               <p class="boa-meta">Mixed · 10'00"</p>
               <div class="boa-abstract">
                 <p>Respiri, silenzio: soglie proposes a model of interplay that departs from conventional gesture–response paradigms to explore the parallel coexistence of two heterogeneous respiratory regimes: the human breath (a low-register wind instrument) and a digitally generated respiratory process based on real-time physical modelling. This digital breath is conceived neither as an effect nor as an extension of instrumental gesture, but as an autonomous respiratory process endowed with cyclic dynamics, internal state, temporality, and inertia. From this forced cohabitation emerge actions that do not produce immediate perceptible responses, but operate through accumulation and threshold-crossing, feeding the slow state variables of the system. As accumulation increases, the digital breath crosses continuous thresholds that trigger irreversible transformations—metallicity, spectral densification, and rarefaction—manifesting as a spiral trajectory that progressively makes coexistence with the performer’s gesture impossible. Interplay unfolds as a process of asymmetric co-evolution operating across different temporal scales. The performer acts within conditions progressively redefined by the evolving state of the system, while the digital respiratory flow continues to transform through temporal persistence and spatial expansion. Rather than unfolding through a predetermined succession of events, musical form emerges from the continuous evolution of the system’s state through accumulation and irreversible transformation. In this respect, the work extends a process-oriented lineage of composition — associated with Gottfried Michael Koenig and James Tenney — into the domain of physiological rather than sonic material.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-11">
-              <!-- PDF 84 -->
+              <!-- camera-ready 84 -->
               <h5 class="boa-title">Xoaninha</h5>
-              <p class="boa-authors"><!-- DA COMPILARE: autori (nel Program compare il segnaposto XXXX XXXX) --></p>
+              <p class="boa-authors">Matteo Lubian</p>
               <p class="boa-meta">Fixed · 6'56"</p>
               <div class="boa-abstract">
-                <p>“Xoaniña” is the galician word for ladybug, and this piece of music portrays a part of the cycle of life of this beautiful and intriguing insect. The sketches of the nodes of the matrices of my studies on scanned synthesis reminded me of the dark spots on their shells.</p>
+                <p>“Xoaniña” is the galician word for ladybug, and this piece of music portrays a part of the cycle of life of this beautiful and intriguing insect. The sketches of the nodes of the matrices of my studies on scanned synthesis reminded me of the dark spots on their shells. The piece was written entirely in Csound, using the CsoundQt IDE, and uses no external samples. It uses exclusively scanned synthesis instruments which are then recorded on the fly onto f-tables to be stretched, looped and granulated. It has been written for a quadraphonic system (4.0).</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-12">
-              <!-- PDF 52 -->
+              <!-- camera-ready 52 -->
               <h5 class="boa-title">Void</h5>
               <p class="boa-authors"><span>Lorenzo Ballerini</span><span>Giuseppe Ernandez, Csound Designer</span></p>
               <p class="boa-meta">Live Electronics · 10'00"</p>
@@ -749,7 +743,7 @@
               </div>
             </article>
             <article class="boa-item" id="concert-piece-13">
-              <!-- PDF 79 -->
+              <!-- camera-ready 79 -->
               <h5 class="boa-title">Via Z Drive</h5>
               <p class="boa-authors">Serkan Sevilgen</p>
               <p class="boa-meta">Fixed · 6'00"</p>
@@ -758,34 +752,34 @@
               </div>
             </article>
             <article class="boa-item" id="concert-piece-14">
-              <!-- PDF 81 -->
+              <!-- camera-ready 81 -->
               <h5 class="boa-title">Persona Torrent</h5>
               <p class="boa-authors">Marijana Janevska</p>
               <p class="boa-meta">Mixed · 5'45"</p>
               <div class="boa-abstract">
-                <p>Persona Torrent (2026) is a performative piece for three speaking performers and electronics (three speakers). The performers speak tutorial-like texts that promise fast transformation: learn it fast, fix it fast, become it fast. Their speech is controlled by notification sounds from the electronics, which trigger them to speak, stop, freeze, or repeat fragments of text. What begins as friendly and familiar online language gradually becomes fragmented, compulsive, and overloaded. The piece ends in a collapse of speech, notifications, and pink noise.</p>
+                <p>Persona Torrent is a performative piece for three speaking performers and three-channel fixed-media electronics.. The performers speak tutorial-like texts that promise fast transformation: learn it fast, fix it fast, become it fast. Their speech is controlled by notification sounds from the electronics, which trigger them to speak, stop, freeze, or repeat fragments of text. What begins as friendly and familiar online language gradually becomes fragmented, compulsive, and overloaded. The piece ends in a collapse of speech, notifications, and pink noise.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-15">
-              <!-- PDF 32 -->
+              <!-- camera-ready 32 -->
               <h5 class="boa-title">Sehr quasi langsam</h5>
-              <p class="boa-authors">hui kim</p>
+              <p class="boa-authors">Hui Kim</p>
               <p class="boa-meta">Fixed · 8'00"</p>
               <div class="boa-abstract">
-                <p>After reading Yuval Harari's ‘The Ultimate Experience’, I attempted to bring this to life using Csound and Supercollider so that electronic and acoustic sounds flow together with the same flexibility as human cartilage. By eliciting a renewed understanding through a compositional exploration of the human body and objects, I aim to objectify the intimate aspects of the individual.</p>
+                <p>This composition presents a creative exploration of human materiality and resilience, inspired by Yuval Harari’s The Ultimate Experience and Joseph Heller’s Catch-22. By leveraging DSP via Csound and SuperCollider, the work integrates electronic and acoustic soundscapes to mimic the flexible, cartilaginous nature of the human body. The piece investigates the extreme objectification of the human form within the machinery of war, utilizing fundamental musical parameters—rhythm, noise, and sound masses—to reflect profound contingency and unconscious orchestration. Spatialization techniques, specifically asymmetrical panning, are employed to aurally depict the physical dichotomy of war’s toll, translating visual fragmentation into an immersive acoustic experience. Structurally atomized sound particles intentionally disrupt the listener, creating a psychological friction that is subsequently resolved through unexpected silence and pure sonic matter. Ultimately, the composition transcends the notion that “Man was matter”, asserting the dignity, fragility, and enduring elasticity of the human spirit amidst conflict.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-16">
-              <!-- PDF 68 -->
+              <!-- camera-ready 68 -->
               <h5 class="boa-title">Don't Say Cats</h5>
               <p class="boa-authors"><span>Francesco Perissi</span><span>Alberto Maria Gatti</span></p>
               <p class="boa-meta">Live Electronics · 10'50"</p>
               <div class="boa-abstract">
-                <p>"Don't Say Cats" is a live performance for resonating box and live electronics, built on the Spatial Agents instrument, in which the timbre of a performed gesture governs its position in space. Five piezoelectric contact microphones mounted on a hand-built resonating box feed a single Csound engine hosted inside Max through the csound6~ object. Each input is reduced in real time to five audio descriptors (short-term energy, transient density, spectral centroid, spectral spread and spectral flux) that drive five autonomous "agents" through a second-order Ambisonic field, decoded to an eight-loudspeaker horizontal ring or to a file-free binaural render. Spectral stillness and purity pull a source toward the centre, while spectral change and noisiness push it to the periphery, so that a sustained sine tone is heard as a still central point and an evolving noisy texture as a fast peripheral orbit. The decoder is written as user-defined opcodes in the ACN/SN3D convention up to third order and can be rebuilt at run time from a JSON description of the loudspeaker layout. The system is functional and validated.</p>
+                <p>“Don’t Say Cats” is a live performance for resonating box and live electronics, built on the Spatial Agents instrument, in which the timbre of a performed gesture governs its position in space. Five piezoelectric contact microphones mounted on a hand-built resonating box feed a single Csound engine hosted inside Max through the csound6~ object. Each input is reduced in real time to five audio descriptors (short-term energy, transient density, spectral centroid, spectral spread and spectral flux) that drive five autonomous “agents” through a second-order Ambisonic field, decoded to an eight-loudspeaker horizontal ring or to a file-free binaural render. Spectral stillness and purity pull a source toward the centre, while spectral change and noisiness push it to the periphery, so that a sustained sine tone is heard as a still central point and an evolving noisy texture as a fast peripheral orbit. The decoder is written as user-defined opcodes in the ACN/SN3D convention up to third order and can be rebuilt at run time from a JSON description of the loudspeaker layout. The system is functional and validated.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-17">
-              <!-- PDF 80 -->
+              <!-- camera-ready 80 -->
               <h5 class="boa-title">Morphesis</h5>
               <p class="boa-authors">Parham Izadyar</p>
               <p class="boa-meta">Fixed · 6'51"</p>
@@ -794,12 +788,12 @@
               </div>
             </article>
             <article class="boa-item" id="concert-piece-18">
-              <!-- PDF 66 -->
+              <!-- camera-ready 66 -->
               <h5 class="boa-title">Postcard from Sertões</h5>
-              <p class="boa-authors"><span>Catarina Rossi</span><span>Bruno Gazoni</span></p>
+              <p class="boa-authors"><span>Catarina Rossi, Rabeca &amp; Viola</span><span>Bruno Gazoni, Live Electronics</span></p>
               <p class="boa-meta">Mixed · 8'00"</p>
               <div class="boa-abstract">
-                <p>Postcard from Sertões is an experimental performance project that establishes a dialogue between Almeida Prado’s solo viola work Sertões (1978) and the compositional approach of James Tenney’s Postal Pieces (1971). The project explores cultural hybridity by fusing the technical-aesthetic references of the Brazilian rabeca with contemporary electroacoustic practices. Methodologically, the performance distills Prado’s "transtonal system" [1] into four essential sound blocks, reinterpreted as clangs, primary musical units of unitariness and segregation [2]. These blocks are manipulated in real-time using Csound, where four custom-designed looper tracks process the instrumental input to evoke memories from the symbolic territory of the Brazilian sertão. The result is a "hybrid listening zone" that investigates the phenomenal nature of sound through timbral experimentation and real-time algorithmic interaction.</p>
+                <p>Postcard from Sertões is an experimental performance project that establishes a dialogue between Almeida Prado’s solo viola work Sertões (1978) and the compositional approach of James Tenney’s Postal Pieces (1971). The project explores cultural hybridity by fusing the technical-aesthetic references of the Brazilian rabeca with contemporary electroacoustic practices. Methodologically, the performance distills Prado’s “transtonal system” [1] into four essential sound blocks, reinterpreted as clangs, primary musical units of unitariness and segregation [2]. These blocks are manipulated in real-time using Csound, where four custom-designed looper tracks process the instrumental input to evoke memories from the symbolic territory of the Brazilian sertão. The result is a “hybrid listening zone” that investigates the phenomenal nature of sound through timbral experimentation and real-time algorithmic interaction.</p>
               </div>
             </article>
           </section>
@@ -813,16 +807,17 @@
 
           <section class="boa-group">
             <article class="boa-item" id="concert-piece-19">
-              <!-- PDF 30 -->
+              <!-- sottomissione 30 (nel camera-ready manca il testo) -->
               <h5 class="boa-title">Spazio Inclinato</h5>
-              <p class="boa-authors">Matteo Tundo</p>
+              <p class="boa-authors"><span>Matteo Tundo</span><span>Vito La Pagli, Alto Saxophone</span><span>Simone Veccia, Musical Supervisor</span></p>
               <p class="boa-meta">Mixed · 7'50"</p>
               <div class="boa-abstract">
+                <!-- NOTA: il camera-ready n. 30 contiene solo le indicazioni di esecuzione e non un abstract: il testo qui sotto è quello della sottomissione originale n. 30 -->
                 <p>This composition is born from a thought on the essence of the movement and tries to explore the perceptive possibilities of different types of dynamism. Sound is naturally perceived as a dynamic material and the space in which it is diffused can be inclined to favor the tendency to a perceptive characteristic rather than another. Through the management of this inclination, it is possible not only to organize the direction of sound, but also to modify its timbre characteristics in relation to time.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-20">
-              <!-- PDF 89 -->
+              <!-- camera-ready 89 -->
               <h5 class="boa-title">Lumina</h5>
               <p class="boa-authors">Francesco Vitucci</p>
               <p class="boa-meta">Fixed · 5'00"</p>
@@ -831,22 +826,22 @@
               </div>
             </article>
             <article class="boa-item" id="concert-piece-21">
-              <!-- PDF 47 -->
+              <!-- camera-ready 47 -->
               <h5 class="boa-title">Csound EEG Duet #2</h5>
               <p class="boa-authors"><span>Shiying (Amy) Chen</span><span>Richard Boulanger</span></p>
               <p class="boa-meta">Live Electronics · 8'00"</p>
               <div class="boa-abstract">
-                <p>Csound EEG Duet #2 is a live electroacoustic work for two performers, each wearing a Muse Athena EEG headband and streaming Delta, Theta, Alpha, Beta, and Gamma band data via OSC into Csound from four sensors (TP9, AF7, AF8, TP10). The four streams per band most often generate four independent voices or four-part harmonies; in solo passages, they instead shape the detuning, mix, and filtering of a single four-oscillator instrument. MIDI keyboards and faders let each performer trigger, gate, and transpose the sound, so the EEG data becomes audible only when a key is pressed, at a rate the player sets. Across eight differently mapped Csound orchestras, the piece moves between unquantized harmonies drawn directly from the fluctuating brainwave data and more focused, quantized, reharmonizing textures. Each performer runs The Csound Brain Lab, which hosts the EEG connection and projects EEG-responsive, audio-reactive visuals synchronized to the selected orchestra. Over 6 to 8 minutes, the performance moves from raw, exotic harmonic material toward focused chordal writing and a brief melodic solo, then dissolves back into the unpredictability of the original data streams.</p>
+                <p>Csound EEG Duet #2 is a live electroacoustic work for two performers, each wearing a Muse Athena EEG headband and streaming Delta, Theta, Alpha, Beta, and Gamma band data via OSC into Csound from four sensors (TP9, AF7, AF8, TP10). The four streams per band most often generate four independent voices or four-part harmonies; in solo passages, they instead shape the detuning, mix, and filtering of a single four-oscillator instrument. MIDI keyboards and faders let each performer trigger, gate, and transpose the sound, so the EEG data becomes audible only when a key is pressed, at a rate the player sets. Across eight differently mapped Csound orchestras, the piece moves between unquantized harmonies drawn directly from the fluctuating brainwave data and more focused, quantized, reharmonizing textures. Each performer runs The Csound Brain Lab, which hosts the EEG connection and projects EEG-responsive, audio-reactive visuals synchronized to the selected orchestra. Over 8 minutes, the performance moves from raw, exotic harmonic material toward focused chordal writing and a brief melodic solo, then dissolves back into the unpredictability of the original data streams.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-22">
-              <!-- PDF 6 -->
+              <!-- camera-ready 6 -->
               <h5 class="boa-title">VoceST III</h5>
-              <p class="boa-authors">Massimo Fragala'</p>
+              <p class="boa-authors">Massimo Fragalà</p>
               <p class="boa-meta">Fixed · 6'00"</p>
               <div class="boa-abstract">
-                <!-- NOTA: il PDF non ha una sezione "Abstract": il testo qui sotto è la "Artistic description" (punto 4 del modulo) -->
-                <p>All the sounds that make up this composition come from the processing of a short vocal sample "Sta" (0.371 seconds). My goal is to generate from this small sample both sounds with an unmistakable connection to the source and sounds that differ from its origin (bells, percussion sounds, abstract sounds, etc.). I used all these generated sounds to create a true musical discourse, supported by the following sounds processing techniques:</p>
+                <!-- NOTA: il PDF non ha una sezione "Abstract": il testo qui sotto è la "Artistic description" del modulo -->
+                <p>All the sounds that make up this composition come from the processing of a short vocal sample “Sta” (0.371 seconds). My goal is to generate from this small sample both sounds with an unmistakable connection to the source and sounds that differ from its origin (bells, percussion sounds, abstract sounds, etc.). I used all these generated sounds to create a true musical discourse, supported by the following sounds processing techniques:</p>
                 <ul>
                   <li>Morphing;</li>
                   <li>Time and spectral stretching;</li>
@@ -859,26 +854,26 @@
               </div>
             </article>
             <article class="boa-item" id="concert-piece-23">
-              <!-- PDF 42 -->
+              <!-- camera-ready 42 -->
               <h5 class="boa-title">Symbol X: Six Unbalanced Equations for Violin and Live Electronics</h5>
-              <p class="boa-authors">Jinlan Zhao</p>
+              <p class="boa-authors">Jinlan Zhao, Composer &amp; Performer (violin and L-Bow)</p>
               <p class="boa-meta">Mixed · 8'00"</p>
               <div class="boa-abstract">
-                <p>What does it mean to live inside an equation that has no solution? Symbol X: Six Unbalanced Equations for Violin and Live Electronics is a work for live violin and live-processed electronics in six scenes, each built around a mathematical symbol that portrays the problems and dilemmas women face in different social contexts. The electronics are driven entirely by a wrist-worn IMU controller that the composer built and wears during performance, routing gesture data into Csound in real time; there is no fixed medium and every sound is generated live. Beginning with the undefined equation of 1/0 and ending in the self-evident simplicity of 1+1=2, the piece traces a path from the unease of being watched toward a temporary space of equality.</p>
+                <p>What does it mean to live inside an equation that has no solution? Symbol X: Six Unbalanced Equations for Solo Violin and Live Electronics is a work for live violin and live-processed electronics in six scenes, each built around a mathematical symbol that portrays the problems and dilemmas women face in different social contexts. The electronics are driven entirely by a wrist-worn IMU controller that the composer built and wears during performance, routing gesture data into Csound in real time; there is no fixed medium and every sound is generated live. Beginning with the undefined equation of 1/0 and ending in the self-evident simplicity of 1+1=2, the piece traces a path from the unease of being watched toward a temporary space of equality.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-24">
-              <!-- PDF 21 -->
+              <!-- sottomissione 21 (nel camera-ready manca il testo) -->
               <h5 class="boa-title">Butterfly Effect</h5>
               <p class="boa-authors">Cesare Saldicco</p>
               <p class="boa-meta">Fixed · 10'00"</p>
               <div class="boa-abstract">
-                <!-- NOTA: il PDF non ha una sezione "Abstract": il testo qui sotto è il "Commentary on the work" (parte in inglese) -->
+                <!-- NOTA: il camera-ready n. 21 contiene solo il titolo e un link: il testo qui sotto è il "Commentary on the work" (parte in inglese) della sottomissione originale n. 21 -->
                 <p>Written on the occasion of the centenary of the death of Giacomo Puccini, Butterfly Effect is a composition that revolves around quotations of themes drawn from Puccini’s opera, reworked, assembled, and shaped by a simple question: what would have happened if Madama Butterfly had not taken her own life? This hypothesis leads us to reflect on the potential ramifications and the different directions that the story of the young Japanese geisha might have taken if its main events had been altered. By imagining an alternative ending in which Butterfly chooses to face reality and pursue a new path in life, the work confronts us with questions such as: how would her relationship with Pinkerton have developed? How would it have influenced her relationship with her son? And what impact would it have had on her experience of migration and adaptation to a foreign culture? Without the tragic choice of suicide, the plot of Madama Butterfly could have taken an unexpected turn, opening up new scenarios and conflicts. These hypotheses—explored through the theory of the so-called butterfly effect—invite us to consider the infinite possibilities of an alternative narrative, while at the same time preserving the dramatic power and deep reflection offered by Madame Butterfly’s tragic decision.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-25">
-              <!-- PDF 99 -->
+              <!-- camera-ready 99 -->
               <h5 class="boa-title">Echoes of the Unseens</h5>
               <p class="boa-authors">Jacopo Greco d'Alceo</p>
               <p class="boa-meta">Live Electronics · 10'00"</p>
@@ -889,12 +884,12 @@
               </div>
             </article>
             <article class="boa-item" id="concert-piece-26">
-              <!-- PDF 67 -->
+              <!-- camera-ready 67 -->
               <h5 class="boa-title">Transmutational Interplay for Piano and Csound</h5>
-              <p class="boa-authors">Yuwen Meng</p>
+              <p class="boa-authors">Yuwen (Liora) Meng, Piano</p>
               <p class="boa-meta">Mixed · 8'00"</p>
               <div class="boa-abstract">
-                <p>Transmutational Interplay for Piano and Csound is a solo piano piece reshaped live by a second performer processing the piano signal in real time on CsoundLive, a browser-based Csound 7 performance environment built around 22 time-based and 12 spectral effects, MIDI-mapped controls, and an internal live-input, sampler, and player mixing architecture. No sampled or pre-recorded material is used at any point; every sound in performance is the piano, reshaped as it is played. The accompanist draws on seven of CsoundLive's time-based effects: a flanger, a rhythmic gate, a resonator, a pitch harmonizer, a shimmer reverb, a real-time granular processor, and a slow spectral “accordionizer” that stretches and compresses the piano's harmonic content the way a bellows moves air, bringing each in and out across a single emotional arc: an unsettled, searching opening; a harder passage of real hesitation; the gradual arrival of warmth and reassurance; and a more open, hopeful close, voiced as though the performer's present self were speaking back to an earlier, less certain one. The two performers work the way a jazz duo does: the pianist states the piece's motives, and the accompanist answers, stretches, and leans into them live, so the balance of the seven effects shifts somewhat from one performance to the next even though the piano's own material stays fixed.</p>
+                <p>Transmutational Interplay for Piano and CsoundLive is a solo piano piece reshaped live by a second performer processing the piano signal in real time on CsoundLive, a browser-based Csound 7 performance environment built around 22 time-based and 12 spectral effects, Muse2 EEG and MIDI-mapped controls, and an internal live-input, sampler, and player mixing architecture. No sampled or pre-recorded material is used at any point; every sound in performance is the piano, reshaped as it is played. The accompanist draws on seven of CsoundLive’s time-based effects: a flanger, a rhythmic gate, a resonator, a pitch harmonizer, a shimmer reverb, a real-time granular processor, and a slow spectral “accordionizer” that stretches and compresses the piano’s harmonic content the way a bellows moves air, bringing each in and out across a single emotional arc: an unsettled, searching opening; a harder passage of real hesitation; the gradual arrival of warmth and reassurance; and a more open, hopeful close, voiced as though the performer’s present self were speaking back to an earlier, less certain one. The two performers work like a jazz duo: the pianist states the piece’s motives, and the accompanist answers, stretches, and leans into them live, so the balance of the seven effects shifts from one performance to the next even as the piano’s material stays fixed.</p>
               </div>
             </article>
           </section>
@@ -908,45 +903,40 @@
 
           <section class="boa-group">
             <article class="boa-item" id="concert-piece-27">
-              <!-- PDF 1 -->
+              <!-- camera-ready 1 -->
               <h5 class="boa-title">Electropoem No.12</h5>
               <p class="boa-authors">Ali Balighi</p>
               <p class="boa-meta">Fixed Media</p>
               <div class="boa-abstract">
-                <!-- NOTA: il PDF non ha una sezione "Abstract": il testo qui sotto è la descrizione del lavoro contenuta nel PDF -->
                 <p>The Electropoem series is a collection of multichannel compositions that explore the connections between sound, space, and poetic expression. Each piece focuses on the spatial placement and movement of sound to create an engaging listening experience where the balance between sound and silence encourages attentive listening.</p>
-                <p>The multichannel format allows sounds and textures to move dynamically within a defined space. This approach helps create clear and precise auditory environments, making it easier for listeners to focus on the details of the music.</p>
-                <p>Electropoem No. 12 is based on sounds recorded by NASA on Mars. This includes 16 minutes of raw, unfiltered sounds captured by the Perseverance rover as it traveled through Jezero Crater. The recordings feature noise generated by the interaction between the rover’s wheels, suspension, and the Martian surface, as well as a high-pitched scratching noise. Notably, the microphone used for these recordings was originally designed for entry, descent, and landing operations and had limited testing for surface recordings before the rover's launch.</p>
-                <p>Mars’s atmosphere affects how sound behaves. Because it is cold and thin, sound travels at about 540 mph (240 m/s), which is slower than the 760 mph (340 m/s) on Earth. The atmosphere, mostly made up of carbon dioxide (96%), absorbs higher-pitched sounds, allowing only lower frequencies to carry over long distances. These factors result in soft, filtered sounds that shape the character of the piece.</p>
-                <p>The work also uses the ED2-07 tuning system, which divides an octave into seven equal parts. The scale is as follows:</p>
-                <p>171.42857, 342.85714, 514.28571, 685.71429, 857.14286, 1028.57143, 2/1</p>
-                <p>This tuning system, combined with the unique Martian soundscapes, adds variety to the series and introduces new musical possibilities. By combining these elements, Electropoem No. 12 highlights the potential for new approaches to music using unfamiliar sound sources and tuning systems.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-28">
-              <!-- PDF 5 -->
+              <!-- camera-ready 5 -->
               <h5 class="boa-title">P l e n u m (Groot Auditorium Leiden)</h5>
               <p class="boa-authors">Michele Del Prete</p>
               <p class="boa-meta">Fixed Media · 10'13"</p>
               <div class="boa-abstract">
                 <!-- NOTA: il PDF non ha una sezione "Abstract": il testo qui sotto è la descrizione del lavoro contenuta nel PDF -->
                 <p>P l e n u m is a series of pieces devoted to the exploration of site- and instrument-specific constellations through electronics realized exclusively in Csound. The series investigates the phantasm of the organ’s full presence—a sonic effect traditionally achieved, in its ideal form, through the plenum: the organ registration in which several, potentially all, aliquot stops are added to the principal.</p>
-                <p>For P l e n u m (Groot Auditorium, Leiden) I recorded several sound combinations of the 1998 Flentrop organ at Groot Auditorium, an instrument built after 17th-century Dutch models. The compositional process involves creating a plurality of microtonally shifted textures in which the recorded material is transposed by gradually increasing factors and enriched through multiple artificial plenum gradations. The aliquot strata are algorithmically generated to replicate the mixture structure of the Flentrop organ. At the formal level, echo sections play a key role, as they do in several Fantasias by Jan Pieterszoon Sweelinck.</p>
-                <p>In the co-presence of multiple organs within the same space, the question of the polyphony of space becomes immediately striking. Yet even within the spatiality of a single organ, the multiplicity of sound sources remains a crucial issue. Polyphony is a fundamental category of organ music; organ placement is an extremely complex subject, and the question of sound projection in the electronic realm is itself immense. A kind of mise en abyme therefore emerges in the relationship between organs, electronics, and spaces.</p>
-                <p>I conceive my P l e n u m series as a contribution to this exploration.</p>
+                <p>For P l e n u m (Groot Auditorium Leiden) I recorded several sound combinations of the 1998 Flentrop organ at Groot Auditorium, an instrument built after 17th-century Dutch models. The compositional process involves creating a plurality of microtonally shifted textures in which the recorded material is transposed by gradually increasing factors and enriched through multiple artificial plenum gradations. The aliquot strata are algorithmically generated to replicate the mixture structure of the Flentrop organ. At the formal level, echo sections play a key role, as they do in several Fantasias by Jan Pieterszoon Sweelinck.</p>
+                <p>In the co-presence of multiple organs within the same space, the question of the polyphony of space becomes immediately striking. Yet even within the spatiality of a single organ, the multiplicity of sound sources remains a crucial issue. Polyphony is a fundamental category of organ music; organ placement is an extremely complex subject, and the question of sound projection in the electronic realm is itself immense. A kind of mise en abyme therefore emerges in the relationship between organs, electronics, and spaces. I conceive my P l e n u m series as a contribution to this exploration.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-29">
-              <!-- PDF 8 -->
+              <!-- camera-ready 8 -->
               <h5 class="boa-title">In memoria di Giuseppe Ganduscio</h5>
               <p class="boa-authors">Giovanni Damiani</p>
               <p class="boa-meta">Fixed Media</p>
               <div class="boa-abstract">
-                <p>The piece In memoria di Giuseppe Ganduscio is a tribute to a relevant and little-known etnomusicologist, poet, political man; Ganduscio (1925-1963) I known through an interview Luciano Berio and Roberto Leidy made in 1963. There he sung and exposed their personal criteria to restore sicilian music of oral tradition. There is cases of literal saving and transmitting, but there also for example a benediction song that he transform adding political invective, as ‘amo a canciari ’sta sorti mischina’ (we have to change this miserable fate). I sample his song and his spoken text, (his tenoril voice is already worth to evocate) and I change myself the text, separating text from melodic contour. With LPC I use slowing, freeze, take just the noisy or the vocal component, changing the formants (as changing in impressive mode the age of virtual singer, from child to aged and decrepited. After a monophonic freezing in the upbeat of melodie, the spectral component are scattered in space in a heavy dynamic and spatial explosion.</p>
+                <!-- NOTA: il PDF non ha una sezione "Abstract": il testo qui sotto è il "Program notes" del PDF -->
+                <p>The piece In memoria di Giuseppe Ganduscio is a tribute to a relevant but little-known Sicilian ethnomusicologist, poet, and political figure. Ganduscio (1925–1963) is known to me through a recording of an interview that Luciano Berio made in 1962, together with Cathy Berberian, Roberto Leydi, and others. On that occasion, Ganduscio sang and explained his personal criteria for preserving and transmitting Sicilian oral-tradition music. There are cases of literal preservation and transmission, but there is also, for example, a blessing song that he transformed into a political challenge, with the words “amo a canciari ’sta sorti mischina” (“we have to change this miserable fate”).</p>
+                <p>Here I sample his late song and this spoken text—his tenor voice alone being already evocative—and I transform the text myself, separating the text from its melodic contour and also applying the spoken text to the melodic contour of the song. Through LPC (Linear Predictive Coding), I use time-stretching, freezing, and the extraction of only the noisy or vocal component, as well as formant shifting. This can change, in a striking way, the perceived age of the virtual singer, from a child to an aged and decrepit voice. After a monophonic freeze on the upbeat of the melody, the spectral components are scattered through space in a powerful dynamic and spatial explosion.</p>
+                <p>The piece is dedicated to Luigi Pestalozza, a great figure in connecting the manifold social levels of music and music research.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-30">
-              <!-- PDF 20 -->
+              <!-- camera-ready 20 -->
               <h5 class="boa-title">Alghero Fever</h5>
               <p class="boa-authors">Grant Chu Covell</p>
               <p class="boa-meta">Fixed Media · 8'43"</p>
@@ -955,74 +945,76 @@
               </div>
             </article>
             <article class="boa-item" id="concert-piece-31">
-              <!-- PDF 29 -->
+              <!-- sottomissione 29 (nel camera-ready manca il testo) -->
               <h5 class="boa-title">Genesi Astratta</h5>
               <p class="boa-authors">Matteo Tundo</p>
               <p class="boa-meta">Fixed Media · 9'08"</p>
               <div class="boa-abstract">
+                <!-- NOTA: il camera-ready n. 29 contiene solo un link e la biografia: il testo qui sotto è quello della sottomissione originale n. 29 -->
                 <p>This piece was composed imagining the neural path of an event. The information is initially perceived by the receptor organs and elaborated in a first neural stage. Subsequently the event is compared with the memory, in order to obtain an elaboration of the information coherent with the personal life experience. The brain data becomes more and more abstract and create the meaning of the information, shaping our thoughts, our impressions. In this way we create ourselves through an abstract genesis. The sound events in the composition are always related to the previous sounds and have been developed following an evolutionary process. The spatialization has been treated as a projection of the internal sound space, paying particular attention to the distribution of the spectrum, which aims at a sound perception in an increasingly intimate environment.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-32">
-              <!-- PDF 36 -->
+              <!-- camera-ready 36 -->
               <h5 class="boa-title">Flourishing Blossoms Like a Dream</h5>
               <p class="boa-sub">An Audiovisual Electroacoustic Composition</p>
               <p class="boa-authors"><span>Hechen Weng</span><span>Haokun Yang</span></p>
               <p class="boa-meta">Fixed Media · 7'30"</p>
               <div class="boa-abstract">
-                <p>This proposal presents "Flourishing Blossoms Like a Dream", a fixed-media audiovisual electroacoustic composition scored for 4-channel quadraphonic audio and synchronized digital video. The work explores the aesthetic dichotomy between ephemeral worldly prosperity and the enduring tranquility of memory through a tightly coupled hierarchical mapping between sound and image. Technically, the electronic audio layer blends pointillistic digital synthesis with granularly processed acoustic wind chime samples. Spatialization is driven entirely by a custom-developed suite of eight algorithmic quadraphonic panning plugins implemented natively within Csound. These algorithms— ranging from orbital trajectories to flocking systems—dynamically distribute the sonic textures across a four-channel speaker array to create a deeply immersive acoustic landscape that cross-modulates with the unfolding visual narratives.</p>
+                <p>This proposal presents “Flourishing Blossoms Like a Dream”, a fixed-media audiovisual electroacoustic composition scored for 4-channel quadraphonic audio and synchronized digital video. The work explores the aesthetic dichotomy between ephemeral worldly prosperity and the enduring tranquility of memory through a tightly coupled hierarchical mapping between sound and image. Technically, the electronic audio layer blends pointillistic digital synthesis with granularly processed acoustic wind chime samples. Spatialization is driven entirely by a custom-developed suite of eight algorithmic quadraphonic panning plugins implemented natively within Csound. These algorithms—ranging from orbital trajectories to flocking systems—dynamically distribute the sonic textures across a four-channel speaker array to create a deeply immersive acoustic landscape that cross-modulates with the unfolding visual narratives.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-33">
-              <!-- PDF 37 -->
+              <!-- camera-ready 37 -->
               <h5 class="boa-title">Extrapolation de la campagne</h5>
-              <p class="boa-authors">Jean Basile Sosa</p>
+              <p class="boa-authors">Jean-Basile Sosa</p>
               <p class="boa-meta">Fixed Media · 20'00"</p>
               <div class="boa-abstract">
-                <!-- NOTA: il PDF non ha una sezione "Abstract": il testo qui sotto è il "Programme notes" (sezione 1 del PDF) -->
+                <!-- NOTA: il PDF non ha una sezione "Abstract": il testo qui sotto è il "Programme notes" del PDF -->
                 <p>Extrapolation de la campagne is a research and electroacoustic music project in which the concepts of space and nature lie at the heart of the musical thinking.</p>
-                <p>In this project, musical space is indeed treated as a fundamental parameter, alongside pitch, timbre, intensity, and duration. From conception to realization, Extrapolation de la campagne was initially produced using a three-dimensional sound spatialization system based on ambisonic technology (3rd order HOA) and a network of twenty-four loudspeakers. To ensure the work’s longevity and wider artistic dissemination, a stereophonic version was subsequently created. It is this stereo version that is submitted to the selection committee.</p>
-                <p>From a poetic standpoint, the project is deeply inspired by the concept of Nature, particularly through an imaginative, creative, and musical exploration of natural acoustic environments. Extrapolation de la campagne is thus a hybrid composition in which electronic and synthetic sounds blend with field recordings captured in a rural setting.</p>
+                <p>In this project, musical space is treated as a fundamental parameter, alongside pitch, timbre, intensity, and duration. From conception to realization, Extrapolation de la campagne was initially produced using a three-dimensional sound spatialization system based on ambisonic technology (3rd order HOA) and a network of twenty-four loudspeakers. To ensure the work’s longevity and wider artistic dissemination, a stereophonic version was subsequently produced.</p>
+                <p>From a poetic perspective, the project is motivated by an imaginative, artistic and musical exploration of acoustic spaces in natural environments. Indeed, one of the main aesthetic challenges of this new project is to imagine, from the recording of natural soundscapes, new musical spaces that seem close to nature, but that sound synthesis metamorphoses into another field of unheard perceptions. In this sense, Extrapolation de la campagne can ultimately be considered a hybrid and surrealist composition in which electronic sounds musically blend with field recordings made in rural area.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-34">
-              <!-- PDF 45 -->
+              <!-- camera-ready 45 -->
               <h5 class="boa-title">Ton-Leben</h5>
               <p class="boa-authors">Joachim Heintz</p>
               <p class="boa-meta">Fixed Media · 10'00"</p>
               <div class="boa-abstract">
-                <!-- DA COMPILARE: abstract mancante (il PDF 45 contiene solo un link) -->
+                <p>Ton-Leben can be translated to English as either Tone-Life or Tone-Lives. It works with a reduced constellation of (almost) one pitch only and aims to discover and walk through different stages, gestures, energies, as part of this tone’s experience(s) of life.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-35">
-              <!-- PDF 57 -->
+              <!-- camera-ready 57 -->
               <h5 class="boa-title">Skeiðarársandur</h5>
               <p class="boa-authors">Jan Jacob Hofmann</p>
               <p class="boa-meta">Fixed Media</p>
               <div class="boa-abstract">
-                <p>Hardly anywhere are the processes of formation and dissolution of a landscape as clearly visible as in Iceland. Heat and matter there shape the landscape, just as frost, water, and wind decompose it and transform it into something new. The laws of gravity and inertia of mass, in turn, have an ordering effect on what has previously been dismantled. Disintegration and the breaking up of rigid structures are not something negative here, but rather a completely natural part of a permanent, everyday process of transformation. The laws of formation of the landscape are reflected in "sonic landscapes" that – created purely from electronic sounds – develop around the listener. The electronic sounds, spatialized using the Ambisonic method, evoke landscapes of the soul that have their physical, real counterparts high in the north.</p>
+                <p>Hardly anywhere are the processes of formation and dissolution of a landscape as clearly visible as in Iceland. Heat and matter there shape the landscape, just as frost, water, and wind decompose it and transform it into something new. The laws of gravity and inertia of mass, in turn, have an ordering effect on what has previously been dismantled. Disintegration and the breaking up of rigid structures are not something negative here, but rather a completely natural part of a permanent, everyday process of transformation. The laws of formation of the landscape are reflected in “sonic landscapes” that – created purely from electronic sounds – develop around the listener. The electronic sounds, spatialized using the Ambisonic method, evoke landscapes of the soul that have their physical, real counterparts high in the north.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-36">
-              <!-- PDF 58 -->
+              <!-- camera-ready 58 -->
               <h5 class="boa-title">Undercurrents</h5>
               <p class="boa-authors">Antonio Scarcia</p>
               <p class="boa-meta">Fixed Media · 6'32"</p>
               <div class="boa-abstract">
-                <p>This proposal presents a fixed-media work based on a compositional framework that explores the interaction between sound materials and musical gestures. Concrete and synthetic, pitched and non-pitched sounds are organized through contrast and balance, while gestures are generated parametrically and synthesized in Csound. The work extends the tape studio tradition through detailed time- and frequency-domain post-processing.</p>
+                <!-- NOTA: il PDF non ha una sezione "Abstract": il testo qui sotto è il "Program notes" del PDF -->
+                <p>This fixed-media work is based on a compositional framework that foregrounds the interaction between sound materials and musical gestures. Materials are conceived as sound entities carrying latent structural relationships, which may remain compositional implicit while becoming perceptually manifest through their audible effects. Gestures function as temporal processes that articulate these relationships and shape the listener’s perception. The work integrates concrete and synthetic, tonic and non-pitched sound materials, organized through strategies of contrast and balance. Gestural processes are formalized as parametric sequences generated via a computer algebra system, with sound synthesis realized in Csound. Although produced using digital technologies, the compositional approach aligns with the tape studio tradition, emphasizing detailed post-processing in both the time and frequency domains as an integral part of the compositional process. “Undercurrents” was composed and premiered in 2026 at ICMC, Hamburg.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-37">
-              <!-- PDF 70 -->
+              <!-- camera-ready 70 -->
               <h5 class="boa-title">When an Android Becomes Obsolete</h5>
               <p class="boa-authors">Giancarlo Alfonso</p>
               <p class="boa-meta">Fixed Media</p>
               <div class="boa-abstract">
-                <p>This composition investigates the notion of technological and computational obsolescence as a lens through which to reflect on human obsolescence, particularly in relation to mechanical, artistic, and intellectual labor. Within a social and economic climate increasingly oriented toward efficiency and automation, human beings are placed in constant competition with artificial systems designed to be faster, tireless, and free from the limitations that characterize human labor. The piece employs the figure of an android reaching the end of its operational life cycle as a central metaphor for this condition. Its final moments of activity are evoked through states resembling confusion, anger, resentment, despair, and acceptance, not as genuine emotions, which a machine is incapable of experiencing, but as the outcome of internal calculations and self-assessments of its own operational status. This process paradoxically humanizes the android, placing it on the same existential plane as the human beings it was designed to replace, and turning it into a metaphor for the condition of contemporary individuals increasingly rendered superfluous within industrial and productive contexts. Compositionally, the work is built primarily through granular synthesis, complemented to a lesser extent by additive and subtractive techniques. Concrete industrial and metallic sound sources are granulated and processed into disjointed, rigid rhythmic structures that evoke a mechanical system in decline, while colder, more abstract synthetic textures suggest a form of artificial consciousness. The piece unfolds as a continuous friction between mechanical rigidity and timbral instability, tracing the progressive deterioration of the android's physical and cognitive functions.</p>
+                <p>This composition investigates the notion of technological and computational obsolescence as a lens through which to reflect on human obsolescence, particularly in relation to mechanical, artistic, and intellectual labor. Within a social and economic climate increasingly oriented toward efficiency and automation, human beings are placed in constant competition with artificial systems designed to be faster, tireless, and free from the limitations that characterize human labor. The piece employs the figure of an android reaching the end of its operational life cycle as a central metaphor for this condition. Its final moments of activity are evoked through states resembling confusion, anger, resentment, despair, and acceptance, not as genuine emotions, which a machine is incapable of experiencing, but as the outcome of internal calculations and self-assessments of its own operational status. This process paradoxically humanizes the android, placing it on the same existential plane as the human beings it was designed to replace, and turning it into a metaphor for the condition of contemporary individuals increasingly rendered superfluous within industrial and productive contexts. Compositionally, the work is built primarily through granular synthesis, complemented to a lesser extent by additive and subtractive techniques. Concrete industrial and metallic sound sources are granulated and processed into disjointed, rigid rhythmic structures that evoke a mechanical system in decline, while colder, more abstract synthetic textures suggest a form of artificial consciousness. The piece unfolds as a continuous friction between mechanical rigidity and timbral instability, tracing the progressive deterioration of the android’s physical and cognitive functions.</p>
               </div>
             </article>
             <article class="boa-item" id="concert-piece-38">
-              <!-- PDF 83 -->
+              <!-- camera-ready 83 -->
               <h5 class="boa-title">Porphyry v7.4.2</h5>
               <p class="boa-authors">Michael Gogins</p>
               <p class="boa-meta">Fixed Media</p>
