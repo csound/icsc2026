@@ -506,7 +506,7 @@ footer {
 }
 
 /* ══════════════ RESPONSIVE ══════════════ */
-@media (max-width: 860px) {
+@media (max-width: 1100px) {
   .nav-links { display: none; }
   .burger { display: flex; }
 }
